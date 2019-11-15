@@ -5,16 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UE4_Rename"
         mc:Ignorable="d"
-        Title="MainWindow" Height="264.033" Width="252.726">
+        Title="Rename UE4 C++ Project" Height="194.033" Width="401.726">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
-        </Grid.ColumnDefinitions>
-        <Label Name="dawd" Content="Hello" Grid.Column="1"/>
+        <Rectangle Height="48" Margin="5,10,5,0" VerticalAlignment="Top" Fill="#FFEAEAEA"/>
+        <Label x:Name="ProjectName_L" Content="NO PROJECT SELECTED" HorizontalAlignment="Left" Margin="6,22,0,0" VerticalAlignment="Top" Width="283" Height="26"/>
+        <Button x:Name="SelectProject_btn" Content="Select Project" HorizontalAlignment="Left" Margin="294,22,0,0" VerticalAlignment="Top" Width="84" Height="26" Click="SelectProject_btn_Click"/>
+
+        <Rectangle Height="48" Margin="5,63,5,0" VerticalAlignment="Top" Fill="#FFEAEAEA"/>
+        <TextBox x:Name="NewProjectName_txt" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="30" Margin="153,70,0,0" VerticalAlignment="Top" TextWrapping="Wrap" Text="NewProjectName" Width="225" BorderBrush="#FF727272" TextChanged="NewProjectName_TextChanged"/>
+        <Label x:Name="label_Copy" Content="New Name" HorizontalAlignment="Left" Margin="10,74,0,0" VerticalAlignment="Top" Width="138" Height="26"/>
+        <Button x:Name="RenameObject_btn" Content="Rename" HorizontalAlignment="Left" Margin="162,122,0,0" VerticalAlignment="Top" Width="74" Click="RenameObject_btn_Click" Height="26"/>
     </Grid>
 </Window>
