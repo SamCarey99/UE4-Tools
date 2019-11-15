@@ -25,7 +25,7 @@ namespace UE4_Rename
     public partial class MainWindow : Window
     {
         private string ProjectPath = "";        //Root Directory of UE4 project
-        private string OldProjectName = "";     //Name of older project C++
+        private string OldProjectName = "";     //Name of old project
         private string NewProjectName = "";     //Name of new project
         private bool ValidName = true;          //true if NewProjectName is valid
 
@@ -33,13 +33,11 @@ namespace UE4_Rename
         {
             InitializeComponent();
             NewProjectName = NewProjectName_txt.Text;
+            ResizeMode = ResizeMode.NoResize;
         }
 
         private void SelectProject_btn_Click(object sender, RoutedEventArgs e)
         {
-            var fileContent = string.Empty;
-            var filePath = string.Empty;
-
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Unreal Engine Project File (.uproject)|*.uproject";
             if (openFileDialog.ShowDialog() == true)
@@ -62,13 +60,15 @@ namespace UE4_Rename
             }
             else
             {
-                MessageBoxResult result = MessageBox.Show("WARNING. It is highly recommended that you create a backup of your project before continuing. If you have not created a backup click cancel and create a backup first before continuing. ", "WARNING. Read carefully", MessageBoxButton.OKCancel);
+                MessageBoxResult result = MessageBox.Show("WARNING. It is highly recommended that you create a backup of your project continuing. If you have not created a backup click cancel and create one before you continue", "WARNING. Read carefully", MessageBoxButton.OKCancel);
                 if (result == MessageBoxResult.OK)
                 {
                     RenameProject();
-                    MessageBox.Show("Your Project has been renamed");
-                    ProjectName_L.Content = "NO PROJECT SELECTED";
-                    NewProjectName_txt.Text = "NewProjectName";
+                    MessageBox.Show("Your Project has been renamed. Follow the steps on the next page to load your renamed project for the first time");
+
+                    Tutorial TutorialWindow = new Tutorial();
+                    TutorialWindow.Show();
+                    Close();
                 }
             }
         }
@@ -112,7 +112,7 @@ namespace UE4_Rename
             RemoveDirectoryIfValid(ProjectPath + "/.vs");
             RemoveDirectoryIfValid(ProjectPath + "/Binaries");
 
-            #region Cahnge name internal  
+            #region Change name internal  
             //List of all files which need some form of modification
             var Files = Directory.GetFiles(ProjectPath, "*.*", SearchOption.AllDirectories)
                 .Where(
