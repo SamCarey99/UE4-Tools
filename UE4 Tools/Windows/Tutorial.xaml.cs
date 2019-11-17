@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace UE4_Rename
+namespace UE4_Tools
 {
     /// <summary>
     /// Interaction logic for Tutorial.xaml
@@ -26,7 +26,7 @@ namespace UE4_Rename
 
         private void Home_btn_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow Main = new MainWindow();
+            RenameProject Main = new RenameProject();
             Main.Show();
             Close();
         }

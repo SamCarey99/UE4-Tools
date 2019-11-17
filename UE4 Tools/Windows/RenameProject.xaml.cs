@@ -17,19 +17,19 @@ using System.IO;
 using Path = System.IO.Path;
 using System.Diagnostics;
 
-namespace UE4_Rename
+namespace UE4_Tools
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for RenameProject.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class RenameProject : Window
     {
         private string ProjectPath = "";        //Root Directory of UE4 project
         private string OldProjectName = "";     //Name of old project
         private string NewProjectName = "";     //Name of new project
         private bool ValidName = true;          //true if NewProjectName is valid
 
-        public MainWindow()
+        public RenameProject()
         {
             InitializeComponent();
             NewProjectName = NewProjectName_txt.Text;
@@ -63,7 +63,7 @@ namespace UE4_Rename
                 MessageBoxResult result = MessageBox.Show("WARNING. It is highly recommended that you create a backup of your project continuing. If you have not created a backup click cancel and create one before you continue", "WARNING. Read carefully", MessageBoxButton.OKCancel);
                 if (result == MessageBoxResult.OK)
                 {
-                    RenameProject();
+                    RenameProjectFiles();
                     MessageBox.Show("Your Project has been renamed. Follow the steps on the next page to load your renamed project for the first time");
 
                     Tutorial TutorialWindow = new Tutorial();
@@ -105,7 +105,7 @@ namespace UE4_Rename
         /// <summary>
         /// Rename all required elements of project using ProjectPath, OldProjectName and NewProjectName
         /// </summary>
-        private void RenameProject ()
+        private void RenameProjectFiles ()
         {
             RemoveDirectoryIfValid(ProjectPath + "/Saved");
             RemoveDirectoryIfValid(ProjectPath + "/Intermediate");
@@ -147,7 +147,6 @@ namespace UE4_Rename
             Directory.Move(ProjectPath + "\\Source\\" + OldProjectName, ProjectPath + "\\Source\\" + NewProjectName);
             #endregion
 
-
             #region Project Icon
             string ProjectIconPath = ProjectPath + "\\" + OldProjectName + ".png";
             if (File.Exists(ProjectIconPath))
@@ -155,6 +154,13 @@ namespace UE4_Rename
                 File.Move(ProjectIconPath, ProjectPath  + "\\" + NewProjectName + ".png");
             }
             #endregion
+        }
+
+        private void ReturnHome_btn_Click(object sender, RoutedEventArgs e)
+        {
+            MainMenu Menu = new MainMenu();
+            Menu.Show();
+            Close();
         }
     }
 }

@@ -1,9 +1,9 @@
-﻿<Window x:Class="UE4_Rename.Tutorial"
+﻿<Window x:Class="UE4_Tools.Tutorial"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:UE4_Rename"
+        xmlns:local="clr-namespace:UE4_Tools"
         mc:Ignorable="d"
         Title="Tutorial" Height="713" Width="800">
     <Grid>
@@ -14,9 +14,9 @@
         <StackPanel HorizontalAlignment="Left" Height="552" Margin="40,24,0,0" VerticalAlignment="Top" Width="720" Grid.ColumnSpan="2">
             <Label x:Name="label" Content="After Renaming Project" FontSize="20" Height="68" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <Label x:Name="label1" Content="Step 1: Right click on main project file and select 'Generate Visual Studio project files.'"/>
-            <Image x:Name="image" Height="130" Source="Resources/Tut 1.PNG"/>
+            <Image x:Name="image" Height="130" Source="/UE4 Tools;component/Resources/Tut 1.PNG"/>
             <Label x:Name="label1_Copy" Content="Step 2: Double click on project file. Select 'yes'. This may take some time to complete."/>
-            <Image x:Name="image1" Height="272" Source="Resources/Tut 2.PNG"/>
+            <Image x:Name="image1" Height="272" Source="/UE4 Tools;component/Resources/Tut 2.PNG"/>
             <Label x:Name="label1_Copy1" Content="Your project should now open without errors."/>
         </StackPanel>
         <Button x:Name="Home_btn" Content="Back to Home" HorizontalAlignment="Left" Margin="308,620,0,0" VerticalAlignment="Top" Width="152" Height="33" Click="Home_btn_Click"/>

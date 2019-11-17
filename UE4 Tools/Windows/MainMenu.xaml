@@ -1,0 +1,21 @@
+﻿<Window x:Class="UE4_Tools.MainMenu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UE4_Tools"
+        mc:Ignorable="d"
+        Title="Main Menu" Height="285.167" Width="267.021" ResizeMode="NoResize">
+    <Grid>
+        <StackPanel HorizontalAlignment="Left" Height="234" Margin="10,10,0,0" VerticalAlignment="Top" Width="236">
+            <Label x:Name="label1" Content="UE4 Tools" FontSize="20" HorizontalContentAlignment="Center"/>
+            <Label x:Name="label" Content="Rename" HorizontalAlignment="Center"/>
+            <Button x:Name="RenameProject_btn" Content="Rename C++ Project" Margin="10,0" Click="RenameProject_btn_Click"/>
+            <Button x:Name="RenameClass_btn" Content="Rename C++ Class" Margin="10,5,10,0" Click="RenameClass_btn_Click" Background="#FF838080"/>
+            <Label x:Name="label_Copy" Content="Create" HorizontalAlignment="Center" Margin="92,20,92,0"/>
+            <Button x:Name="CreateModule_btn" Content="Create C++ Module" Margin="10,0" Click="CreateModule_btn_Click" Background="#FF838080"/>
+            <Button x:Name="CreatePlugin_btn" Content="Create C++ Plugin" Margin="10,5,10,0" Click="CreatePlugin_btn_Click" Background="#FF838080"/>
+        </StackPanel>
+
+    </Grid>
+</Window>

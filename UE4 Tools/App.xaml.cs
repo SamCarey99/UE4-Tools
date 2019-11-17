@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace UE4_Rename
+namespace UE4_Tools
 {
     /// <summary>
     /// Interaction logic for App.xaml

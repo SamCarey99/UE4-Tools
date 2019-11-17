@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.779
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UE4 Rename", "UE4 Rename\UE4 Rename.csproj", "{015A9DA9-81CB-4814-A201-9767D9047586}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UE4 Tools", "UE4 Tools\UE4 Tools.csproj", "{015A9DA9-81CB-4814-A201-9767D9047586}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

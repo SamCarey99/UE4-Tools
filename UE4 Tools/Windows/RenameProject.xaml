@@ -1,11 +1,11 @@
-﻿<Window x:Class="UE4_Rename.MainWindow"
+﻿<Window x:Class="UE4_Tools.RenameProject"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:UE4_Rename"
+        xmlns:local="clr-namespace:UE4_Tools"
         mc:Ignorable="d"
-        Title="Rename UE4 C++ Project" Height="194.033" Width="401.726">
+        Title="Rename UE4 C++ Project" Height="243.366" Width="401.726" ResizeMode="NoResize">
     <Grid>
         <Rectangle Height="48" Margin="5,10,5,0" VerticalAlignment="Top" Fill="#FFEAEAEA"/>
         <Label x:Name="ProjectName_L" Content="NO PROJECT SELECTED" HorizontalAlignment="Left" Margin="6,22,0,0" VerticalAlignment="Top" Width="283" Height="26"/>
@@ -14,6 +14,7 @@
         <Rectangle Height="48" Margin="5,63,5,0" VerticalAlignment="Top" Fill="#FFEAEAEA"/>
         <TextBox x:Name="NewProjectName_txt" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="30" Margin="153,70,0,0" VerticalAlignment="Top" TextWrapping="Wrap" Text="NewProjectName" Width="225" BorderBrush="#FF727272" TextChanged="NewProjectName_TextChanged"/>
         <Label x:Name="label_Copy" Content="New Name" HorizontalAlignment="Left" Margin="10,74,0,0" VerticalAlignment="Top" Width="138" Height="26"/>
-        <Button x:Name="RenameObject_btn" Content="Rename" HorizontalAlignment="Left" Margin="162,122,0,0" VerticalAlignment="Top" Width="74" Click="RenameObject_btn_Click" Height="26"/>
+        <Button x:Name="RenameObject_btn" Content="Rename" HorizontalAlignment="Left" Margin="161,126,0,0" VerticalAlignment="Top" Width="74" Click="RenameObject_btn_Click" Height="26"/>
+        <Button x:Name="ReturnHome_btn" Content="Return Home" HorizontalAlignment="Left" Margin="144,176,0,0" VerticalAlignment="Top" Width="108" Height="26" Click="ReturnHome_btn_Click"/>
     </Grid>
 </Window>
