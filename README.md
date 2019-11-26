@@ -30,4 +30,8 @@ Built Program Download: https://samcarey.itch.io/ue4-tools-open-source-tool
 		<li>Added a main menu</li>
 		<li>New UI design</li>
 	</ul>
+	<li><strong>Version 1.1.1 (Bug Fixes)</strong></li>
+	<ul>
+		<li>Fixed a bug where blueprints(which have user-defined C++ parents) become unlinked upon renaming a project or class</li>
+	</ul>
 </ul>
