@@ -77,6 +77,9 @@ namespace UE4_Tools
                 File.Move(ProjectIconPath, ProjectPath  + "\\" + NewProjectName + ".png");
             }
             #endregion
+
+            GlobalFunction.ActiveRedirect(ProjectPath, OldProjectName, NewProjectName, false);
+
         }
 
         private void ReturnHome_btn_Click(object sender, RoutedEventArgs e)

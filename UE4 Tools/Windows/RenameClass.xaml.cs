@@ -47,6 +47,8 @@ namespace UE4_Tools
             //Rename .h and .cpp files
             File.Move(ClassSelector.Directory + "\\" + ClassSelector.FileName + ".h",   ClassSelector.Directory + "\\" + NameSelector.InputText + ".h");
             File.Move(ClassSelector.Directory + "\\" + ClassSelector.FileName + ".cpp", ClassSelector.Directory + "\\" + NameSelector.InputText + ".cpp");
+
+            GlobalFunction.ActiveRedirect(ProjectSelector.Directory, ClassSelector.FileName, NameSelector.InputText, true);
         }
 
         private void RenameClass_btn_Click(object sender, RoutedEventArgs e)

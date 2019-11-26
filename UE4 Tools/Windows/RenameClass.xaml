@@ -31,6 +31,7 @@
                                             Validation_HasSpace="true" 
                                             Validation_StartsWithNumber="true"/>
 
+            <Label x:Name="label" Content="You should load the project between multiple renames of the same class. Failing to do this may lead to unparented blueprint classes"/>
             <Button x:Name="RenameClass_btn" Content="Rename Class" Height="50" Width="200" Margin="10" FontSize="24" Click="RenameClass_btn_Click"/>
             <Button x:Name="ReturnHome_btn" Content="Return Home" Height="40" Width="200" Margin="0,60,0,0" FontSize="18" Click="ReturnHome_btn_Click"/>
         </StackPanel>

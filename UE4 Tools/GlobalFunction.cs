@@ -62,6 +62,26 @@ namespace UE4_Tools
         }
 
         /// <summary>
+        /// Create an ActiveRedirect in DefaultEngine.ini
+        /// </summary>
+        /// <param name="ProjectPath">Path of project folder</param>
+        /// <param name="StartName">Old name of class or project</param>
+        /// <param name="EndName">New name of class or project</param>
+        /// <param name="Class">True=Class Redirect False=Project Redirect</param>
+        public static void ActiveRedirect(string ProjectPath, string StartName, string EndName, bool Class)
+        {
+            string NewPath  = ProjectPath + "\\Config\\DefaultEngine.ini";
+            string Redirect = Class ? string.Format("+ActiveClassRedirects=(OldClassName=\"{0}\",NewClassName=\"{1}\")", StartName, EndName) :
+                                      string.Format("+ActiveGameNameRedirects=(OldGameName=\"/Script/{0}\",NewGameName=\"/Script/{1}\"", StartName, EndName);
+
+            using (StreamWriter ConfigFile = File.AppendText(NewPath))
+            {
+                ConfigFile.WriteLine(Environment.NewLine +"[/Script/Engine.Engine]");
+                ConfigFile.WriteLine(Redirect);
+            }
+        }
+
+        /// <summary>
         /// Creates an exact backup of a project within the same parent directory
         /// </summary>
         /// <param name="ProjectPath">Current path of project</param>
