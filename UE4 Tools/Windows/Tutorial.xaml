@@ -7,19 +7,14 @@
         mc:Ignorable="d"
         Title="Tutorial" Height="713" Width="800">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="497*"/>
-            <ColumnDefinition Width="295*"/>
-        </Grid.ColumnDefinitions>
-        <StackPanel HorizontalAlignment="Left" Height="552" Margin="40,24,0,0" VerticalAlignment="Top" Width="720" Grid.ColumnSpan="2">
-            <Label x:Name="label" Content="After Renaming Project" FontSize="20" Height="68" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <StackPanel HorizontalAlignment="Stretch" Margin="10" VerticalAlignment="Stretch" >
+            <Label x:Name="label" Content="First time opening project" FontSize="20" Height="45" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="0"  HorizontalContentAlignment="Center"/>
             <Label x:Name="label1" Content="Step 1: Right click on main project file and select 'Generate Visual Studio project files.'"/>
-            <Image x:Name="image" Height="130" Source="/UE4 Tools;component/Resources/Tut 1.PNG"/>
+            <Image x:Name="image" Height="148" Source="/UE4 Tools;component/Resources/Tut 1.PNG"/>
             <Label x:Name="label1_Copy" Content="Step 2: Double click on project file. Select 'yes'. This may take some time to complete."/>
             <Image x:Name="image1" Height="272" Source="/UE4 Tools;component/Resources/Tut 2.PNG"/>
             <Label x:Name="label1_Copy1" Content="Your project should now open without errors."/>
+            <Button x:Name="Home_btn" Content="Back to Home" HorizontalAlignment="Center" Margin="0,50,0,0" VerticalAlignment="Top" Width="152" Height="33" Click="Home_btn_Click"/>
         </StackPanel>
-        <Button x:Name="Home_btn" Content="Back to Home" HorizontalAlignment="Left" Margin="308,620,0,0" VerticalAlignment="Top" Width="152" Height="33" Click="Home_btn_Click"/>
-
     </Grid>
 </Window>

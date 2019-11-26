@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>UE4 Tools Icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -55,13 +58,49 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="GlobalFunction.cs" />
+    <Compile Include="Windows\ChangeLog.xaml.cs">
+      <DependentUpon>ChangeLog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Components\ValidatableInputComponent.xaml.cs">
+      <DependentUpon>ValidatableInputComponent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Components\ProjectBackupProgressBar.xaml.cs">
+      <DependentUpon>ProjectBackupProgressBar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Components\FileSelectorComponent.xaml.cs">
+      <DependentUpon>FileSelectorComponent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\RenameClass.xaml.cs">
+      <DependentUpon>RenameClass.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\Tutorial.xaml.cs">
       <DependentUpon>Tutorial.xaml</DependentUpon>
     </Compile>
+    <Page Include="Windows\ChangeLog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Components\ValidatableInputComponent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Components\ProjectBackupProgressBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\MainMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Components\FileSelectorComponent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\RenameClass.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -113,6 +152,16 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Tut 2.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\UE4 Tools Icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="UE4 Tools Icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\GitHubIcon.png" />
+    <Resource Include="Resources\ItchIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

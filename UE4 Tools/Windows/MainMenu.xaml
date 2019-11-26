@@ -5,17 +5,49 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UE4_Tools"
         mc:Ignorable="d"
-        Title="Main Menu" Height="285.167" Width="267.021" ResizeMode="NoResize">
+        Title="Main Menu" Height="441.646" Width="379.396" >
     <Grid>
-        <StackPanel HorizontalAlignment="Left" Height="234" Margin="10,10,0,0" VerticalAlignment="Top" Width="236">
-            <Label x:Name="label1" Content="UE4 Tools" FontSize="20" HorizontalContentAlignment="Center"/>
-            <Label x:Name="label" Content="Rename" HorizontalAlignment="Center"/>
-            <Button x:Name="RenameProject_btn" Content="Rename C++ Project" Margin="10,0" Click="RenameProject_btn_Click"/>
-            <Button x:Name="RenameClass_btn" Content="Rename C++ Class" Margin="10,5,10,0" Click="RenameClass_btn_Click" Background="#FF838080"/>
-            <Label x:Name="label_Copy" Content="Create" HorizontalAlignment="Center" Margin="92,20,92,0"/>
-            <Button x:Name="CreateModule_btn" Content="Create C++ Module" Margin="10,0" Click="CreateModule_btn_Click" Background="#FF838080"/>
-            <Button x:Name="CreatePlugin_btn" Content="Create C++ Plugin" Margin="10,5,10,0" Click="CreatePlugin_btn_Click" Background="#FF838080"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="0.1*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" HorizontalAlignment="Stretch" Margin="10" VerticalAlignment="Stretch" >
+            <Label x:Name="Title_L" Content="UE4 Tools" FontSize="34" HorizontalContentAlignment="Center"/>
+            <Label x:Name="Rename_L" Content="Rename" HorizontalAlignment="Center"/>
+            <Button x:Name="RenameProject_btn" Content="Rename C++ Project" Margin="10,0" Click="RenameProject_btn_Click" Width="200" Height="30" FontWeight="Bold"/>
+            <Button x:Name="RenameClass_btn" Content="Rename C++ Class" Margin="10,5,10,0" Click="RenameClass_btn_Click"  Width="200" Height="30" FontWeight="Bold"/>
+            <Label x:Name="Create_L" Content="Create" HorizontalAlignment="Center" Margin="92,20,92,0"/>
+            <Button x:Name="CreateModule_btn" Content="Create C++ Module" Margin="10,0" Click="CreateModule_btn_Click" Background="#FF838080"  Width="200" Height="30" FontWeight="Bold"/>
+            <Button x:Name="CreatePlugin_btn" Content="Create C++ Plugin" Margin="10,5,10,0" Click="CreatePlugin_btn_Click" Background="#FF838080"  Width="200" Height="30" FontWeight="Bold"/>
         </StackPanel>
 
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <StackPanel Orientation="Horizontal" Grid.Row="0">
+                <Label x:Name="label" Content="Version 1.1" HorizontalAlignment="Stretch" Grid.Row="1" VerticalAlignment="Stretch" VerticalContentAlignment="Center"/>
+                <Button x:Name="Changelog_btn" Content="Change Log" Margin="10,4,10,3" FontWeight="Bold" Click="Changelog_btn_Click"></Button>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Orientation="Horizontal" FlowDirection="RightToLeft">
+                <TextBlock HorizontalAlignment="Right">
+                    <Hyperlink NavigateUri="https://samcarey.itch.io/ue4-tools-open-source-tool" RequestNavigate="RequestNavigate">
+                        <Image x:Name="image" VerticalAlignment="Stretch" Source="/UE4 Tools;component/Resources/ItchIcon.png" Margin="2"/>
+                    </Hyperlink>
+                </TextBlock>
+                <TextBlock HorizontalAlignment="Right">
+                    <Hyperlink NavigateUri="https://github.com/SamCarey99/UE4-Tools" RequestNavigate="RequestNavigate">
+                        <Image x:Name="s" VerticalAlignment="Stretch" Source="/UE4 Tools;component/Resources/GitHubIcon.png" Margin="2"/>
+                    </Hyperlink>
+                </TextBlock>
+            </StackPanel>
+        </Grid>
+        
+
+
+       
     </Grid>
 </Window>

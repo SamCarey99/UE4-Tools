@@ -1,0 +1,32 @@
+﻿<Window x:Class="UE4_Tools.ChangeLog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UE4_Tools"
+        mc:Ignorable="d"
+        Title="ChangeLog" Height="450" Width="543.538">
+    <Grid>
+        <StackPanel HorizontalAlignment="Stretch" Margin="5" VerticalAlignment="Stretch" >
+            <Grid Margin="0,0,0,10">
+                <Rectangle Fill="#FFF4F4F5"  Stroke="Black"/>
+                <StackPanel HorizontalAlignment="Stretch" Margin="5" VerticalAlignment="Stretch" >
+                    <Label Content="Version 1.0" FontWeight="Bold"/>
+                    <Label Content="- Basic project renaming tool" Margin="20,0,0,0" Padding="2"/>
+                </StackPanel>
+            </Grid>
+            <Grid Margin="0,0,0,10">
+                <Rectangle Fill="#FFF4F4F5"  Stroke="Black"/>
+                <StackPanel HorizontalAlignment="Stretch" Margin="5" VerticalAlignment="Stretch" >
+                    <Label Content="Version 1.1 (Current)" FontWeight="Bold"/>
+                    <Label Content="- Added C++ class renaming tool" Margin="20,0,0,0" Padding="2"/>
+                    <Label Content="- Added In application project backup" Margin="20,0,0,0" Padding="2"/>
+                    <Label Content="- Added a main menu" Margin="20,0,0,0 " Padding="2"/>
+                    <Label Content="- New UI design" Margin="20,0,0,0" Padding="2"/>
+                </StackPanel>
+            </Grid>
+            <Button x:Name="ReturnHome_btn" Content="Return Home" Height="40" Width="200" Margin="0,60,0,0" FontSize="18" Click="ReturnHome_btn_Click"/>
+        </StackPanel>
+
+    </Grid>
+</Window>

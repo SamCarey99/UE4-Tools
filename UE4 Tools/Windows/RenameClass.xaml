@@ -1,4 +1,4 @@
-﻿<Window x:Class="UE4_Tools.RenameProject"
+﻿<Window x:Class="UE4_Tools.RenameClass"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,9 +6,8 @@
         xmlns:local="clr-namespace:UE4_Tools"
         xmlns:View="clr-namespace:UE4_Tools.Windows.Components"
         mc:Ignorable="d"
-        Title="Rename UE4 C++ Project" Height="374.366" Width="773.726">
+        Title="RenameClass" Height="450" Width="800">
     <Grid>
-        
         <StackPanel HorizontalAlignment="Stretch" Margin="5" VerticalAlignment="Stretch">
             <View:FileSelectorComponent x:Name="ProjectSelector" 
                                            ShowFullPath="False"  
@@ -19,14 +18,21 @@
                                            DefaultValue="SELECT PROJECT FILE (.uproject)"
             />
 
-            <View:ValidatableInputComponent x:Name="NameSelectorRef" HelperText="New Project Name" InputText="NewProjectName" 
-                                            Validation_Empty="True" 
-                                            Validation_HasSpace="True" 
+            <View:FileSelectorComponent x:Name="ClassSelector" 
+                                           ShowFullPath="False"  
+                                           ShowFileExtension="True" 
+                                           FileType=".h" 
+                                           FileTypeName="C++ Header File(.h)" 
+                                           NotSelectedMessage="You must select a valid header file (.h) to continue"
+                                           DefaultValue="SELECT ClASS HEADER FILE (.h)"
+            />
+            <View:ValidatableInputComponent x:Name="NameSelector" HelperText="New Class Name" InputText="NewClassName" 
+                                            Validation_Empty="true" 
+                                            Validation_HasSpace="true" 
                                             Validation_StartsWithNumber="true"/>
 
-            <Button x:Name="RenameProject_btn" Content="Rename Project" Height="50" Width="200" Margin="10" FontSize="24" Click="RenameProject_btn_Click"/>
+            <Button x:Name="RenameClass_btn" Content="Rename Class" Height="50" Width="200" Margin="10" FontSize="24" Click="RenameClass_btn_Click"/>
             <Button x:Name="ReturnHome_btn" Content="Return Home" Height="40" Width="200" Margin="0,60,0,0" FontSize="18" Click="ReturnHome_btn_Click"/>
         </StackPanel>
-
     </Grid>
 </Window>

@@ -24,105 +24,28 @@ namespace UE4_Tools
     /// </summary>
     public partial class RenameProject : Window
     {
-        private string ProjectPath = "";        //Root Directory of UE4 project
-        private string OldProjectName = "";     //Name of old project
-        private string NewProjectName = "";     //Name of new project
-        private bool ValidName = true;          //true if NewProjectName is valid
-
         public RenameProject()
         {
             InitializeComponent();
-            NewProjectName = NewProjectName_txt.Text;
-            ResizeMode = ResizeMode.NoResize;
-        }
-
-        private void SelectProject_btn_Click(object sender, RoutedEventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Unreal Engine Project File (.uproject)|*.uproject";
-            if (openFileDialog.ShowDialog() == true)
-            {
-                OldProjectName = Path.GetFileNameWithoutExtension(openFileDialog.FileName);
-                ProjectPath = Path.GetDirectoryName(openFileDialog.FileName);
-                ProjectName_L.Content = OldProjectName;
-            }
-        }
-
-        private void RenameObject_btn_Click(object sender, RoutedEventArgs e)
-        {
-            if (ProjectName_L.Content.Equals("NO PROJECT SELECTED"))
-            {
-                MessageBox.Show("You must select a project to continue", "Select project");
-            }
-            else if (!ValidName)
-            {
-                MessageBox.Show("Invalid Name\nProject name must NOT: \n-Be empty\n-Start with a digit\n-Contain spaces", "Invalid Name");
-            }
-            else
-            {
-                MessageBoxResult result = MessageBox.Show("WARNING. It is highly recommended that you create a backup of your project continuing. If you have not created a backup click cancel and create one before you continue", "WARNING. Read carefully", MessageBoxButton.OKCancel);
-                if (result == MessageBoxResult.OK)
-                {
-                    RenameProjectFiles();
-                    MessageBox.Show("Your Project has been renamed. Follow the steps on the next page to load your renamed project for the first time");
-
-                    Tutorial TutorialWindow = new Tutorial();
-                    TutorialWindow.Show();
-                    Close();
-                }
-            }
-        }
-
-        private void NewProjectName_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            string NewNameTemp = NewProjectName_txt.Text;
-
-            if (NewNameTemp.Length == 0 || char.IsDigit(NewNameTemp[0]) || NewNameTemp.IndexOf(" ") != -1)
-            {
-                ValidName = false;
-                NewProjectName_txt.Foreground = Brushes.Red;
-            }
-            else
-            {
-                ValidName = true;
-                NewProjectName_txt.Foreground = Brushes.Black;
-                NewProjectName = NewProjectName_txt.Text;
-            }
         }
 
         /// <summary>
-        /// Removes Directory if it can find it
-        /// </summary>
-        /// <param name="Path">Path of Directory to remove</param>
-        private void RemoveDirectoryIfValid (string Path)
-        {
-            if (Directory.Exists(Path))
-            {
-                Directory.Delete(Path, true);
-            }
-        }
-
-        /// <summary>
-        /// Rename all required elements of project using ProjectPath, OldProjectName and NewProjectName
+        /// Rename all required elements of project
         /// </summary>
         private void RenameProjectFiles ()
         {
-            RemoveDirectoryIfValid(ProjectPath + "/Saved");
-            RemoveDirectoryIfValid(ProjectPath + "/Intermediate");
-            RemoveDirectoryIfValid(ProjectPath + "/.vs");
-            RemoveDirectoryIfValid(ProjectPath + "/Binaries");
+            string ProjectPath = ProjectSelector.Directory;
+            string OldProjectName = ProjectSelector.FileName;
+            string NewProjectName = NameSelectorRef.InputText;
+
+            GlobalFunction.RemoveDirectoryIfValid(ProjectPath + "/Saved");
+            GlobalFunction.RemoveDirectoryIfValid(ProjectPath + "/Intermediate");
+            GlobalFunction.RemoveDirectoryIfValid(ProjectPath + "/.vs");
+            GlobalFunction.RemoveDirectoryIfValid(ProjectPath + "/Binaries");
 
             #region Change name internal  
             //List of all files which need some form of modification
-            var Files = Directory.GetFiles(ProjectPath, "*.*", SearchOption.AllDirectories)
-                .Where(
-                        s => s.EndsWith(".cs") ||
-                        s.EndsWith(".h") ||
-                        s.EndsWith(".cpp") ||
-                        s.EndsWith(".uproject") ||
-                        s.EndsWith(".sln") ||
-                        s.EndsWith(".ini")
-                   );
+            var Files = GlobalFunction.GetFilesWithExtension(ProjectPath, new string[] { ".cs", ".h", ".cpp", ".uproject", ".sln", ".ini" }, SearchOption.AllDirectories);
 
             foreach (string i in Files)
             {
@@ -161,6 +84,28 @@ namespace UE4_Tools
             MainMenu Menu = new MainMenu();
             Menu.Show();
             Close();
+        }
+
+        private void RenameProject_btn_Click(object sender, RoutedEventArgs e)
+        {
+            if (ProjectSelector.Validate() && NameSelectorRef.Validate())
+            {
+                if(!ProjectSelector.FileName.Equals(NameSelectorRef.InputText))
+                {
+                    if (GlobalFunction.ProjectBackupPrompt(ProjectSelector.Directory, ProjectSelector.FileName))
+                    {
+                        RenameProjectFiles();
+                        MessageBox.Show("Your project has been renamed\nFollow steps on next page to open your project for first time");
+                        Tutorial Temp = new Tutorial();
+                        Temp.Show();
+                        Close();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("You must select a new name to continue");
+                }
+            }
         }
     }
 }

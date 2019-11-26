@@ -15,19 +15,19 @@ using System.Windows.Shapes;
 namespace UE4_Tools
 {
     /// <summary>
-    /// Interaction logic for Tutorial.xaml
+    /// Interaction logic for ChangeLog.xaml
     /// </summary>
-    public partial class Tutorial : Window
+    public partial class ChangeLog : Window
     {
-        public Tutorial()
+        public ChangeLog()
         {
             InitializeComponent();
         }
 
-        private void Home_btn_Click(object sender, RoutedEventArgs e)
+        private void ReturnHome_btn_Click(object sender, RoutedEventArgs e)
         {
-            MainMenu Main = new MainMenu();
-            Main.Show();
+            MainMenu temp = new MainMenu();
+            temp.Show();
             Close();
         }
     }
