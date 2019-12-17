@@ -1,0 +1,19 @@
+#include "BoilerplateModule.h"
+
+DEFINE_LOG_CATEGORY(BoilerplateModule);
+
+#define LOCTEXT_NAMESPACE "FBoilerplateModule"
+
+void FBoilerplateModule::StartupModule()
+{
+	UE_LOG(BoilerplateModule, Warning, TEXT("BoilerplateModule module has been loaded"));
+}
+
+void FBoilerplateModule::ShutdownModule()
+{
+	UE_LOG(BoilerplateModule, Warning, TEXT("BoilerplateModule module has been unloaded"));
+}
+
+#undef LOCTEXT_NAMESPACE
+
+IMPLEMENT_MODULE(FBoilerplateModule, BoilerplateModule)

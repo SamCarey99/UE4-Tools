@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UE4_Tools.Windows;
 
 namespace UE4_Tools
 {
@@ -42,7 +43,9 @@ namespace UE4_Tools
 
         private void CreateModule_btn_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("In Development");
+            CreateModule CreateModule = new CreateModule();
+            CreateModule.Show();
+            Close();
         }
 
         private void CreatePlugin_btn_Click(object sender, RoutedEventArgs e)
@@ -61,6 +64,11 @@ namespace UE4_Tools
         {
             Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
             e.Handled = true;
+        }
+
+        private void CreateFactory_btn_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("In Development");
         }
     }
 }

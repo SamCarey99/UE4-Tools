@@ -1,0 +1,14 @@
+using UnrealBuildTool;
+ 
+public class BoilerplateModule : ModuleRules
+{
+	public BoilerplateModule(ReadOnlyTargetRules Target) : base(Target)
+	{
+        PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
+
+		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "BoilerplateNameOfProject"});
+ 
+		PublicIncludePaths.AddRange(new string[] {"BoilerplateModule/Public"});
+		PrivateIncludePaths.AddRange(new string[] {"BoilerplateModule/Private"});
+	}
+}

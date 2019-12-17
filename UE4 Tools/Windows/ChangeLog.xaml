@@ -18,11 +18,25 @@
             <Grid Margin="0,0,0,10">
                 <Rectangle Fill="#FFF4F4F5"  Stroke="Black"/>
                 <StackPanel HorizontalAlignment="Stretch" Margin="5" VerticalAlignment="Stretch" >
-                    <Label Content="Version 1.1 (Current)" FontWeight="Bold"/>
+                    <Label Content="Version 1.1" FontWeight="Bold"/>
                     <Label Content="- Added C++ class renaming tool" Margin="20,0,0,0" Padding="2"/>
                     <Label Content="- Added In application project backup" Margin="20,0,0,0" Padding="2"/>
                     <Label Content="- Added a main menu" Margin="20,0,0,0 " Padding="2"/>
                     <Label Content="- New UI design" Margin="20,0,0,0" Padding="2"/>
+                </StackPanel>
+            </Grid>
+            <Grid Margin="0,0,0,10">
+                <Rectangle Fill="#FFF4F4F5"  Stroke="Black"/>
+                <StackPanel HorizontalAlignment="Stretch" Margin="5" VerticalAlignment="Stretch" >
+                    <Label Content="Version 1.1.1 (Bug Fixes)" FontWeight="Bold"/>
+                    <Label Content="- Fixed a bug where blueprints(which have user-defined C++ parents) become unlinked&#10; upon renaming a project or class" Margin="20,0,0,0" Padding="2" Height="39"/>
+                </StackPanel>
+            </Grid>
+            <Grid Margin="0,0,0,10">
+                <Rectangle Fill="#FFF4F4F5"  Stroke="Black"/>
+                <StackPanel HorizontalAlignment="Stretch" Margin="5" VerticalAlignment="Stretch" >
+                    <Label Content="Version 1.2 (Current)" FontWeight="Bold"/>
+                    <Label Content="-Added a tool for creating new c++ code modules" Margin="20,0,0,0" Padding="2" Height="39"/>
                 </StackPanel>
             </Grid>
             <Button x:Name="ReturnHome_btn" Content="Return Home" Height="40" Width="200" Margin="0,60,0,0" FontSize="18" Click="ReturnHome_btn_Click"/>

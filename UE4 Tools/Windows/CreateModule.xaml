@@ -1,0 +1,34 @@
+﻿<Window x:Class="UE4_Tools.Windows.CreateModule"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UE4_Tools.Windows"
+        xmlns:View="clr-namespace:UE4_Tools.Windows.Components"
+        mc:Ignorable="d"
+        Title="CreateModule" Height="698" Width="584.534">
+    <Grid>
+        <StackPanel HorizontalAlignment="Stretch" Margin="5" VerticalAlignment="Stretch">
+            <View:FileSelectorComponent x:Name="ProjectSelector" 
+                                           ShowFullPath="False"  
+                                           ShowFileExtension="True" 
+                                           FileType=".uproject" 
+                                           FileTypeName="Unreal Engine Project File (.uproject)" 
+                                           NotSelectedMessage="You must select a project to continue"
+                                           DefaultValue="SELECT PROJECT FILE (.uproject)"
+            />
+            <View:ValidatableInputComponent x:Name="NewModuleName" HelperText="New Module Name" InputText="ModuleName" Margin="0,40,0,20"
+                                            Validation_Empty="true" 
+                                            Validation_HasSpace="true" 
+                                            Validation_StartsWithNumber="true"/>
+
+            <View:SelectBoxComponent x:Name="Teplate_SB" HelperText="Module Template" MyChangeBoxEventHandler="Teplate_SB_MyChangeBoxEventHandler" EnumValues="ModulePrest" DefaultSelected="1"/>
+            <View:SelectBoxComponent x:Name="ModuleType_SB" HelperText="Module Type" EnumValues="ModuleAndPluginTypes" IsEnabled="False"/>
+            <View:SelectBoxComponent x:Name="LoadingPhases_Sb" HelperText="Loading Phases" EnumValues="LoadingPhases" IsEnabled="False" DefaultSelected="5"/>
+
+
+            <Button x:Name="CreateModule_btn" Content="Create Module" Height="50" Width="200" Margin="10" FontSize="24" Click="CreateModule_btn_Click"/>
+            <Button x:Name="ReturnHome_btn" Content="Return Home" Height="40" Width="200" Margin="0,60,0,0" FontSize="18" Click="ReturnHome_btn_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

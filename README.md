@@ -4,13 +4,14 @@ UE4 tools is a set of tools created to perform several tedious tasks related to 
 <strong>Current Features</strong>
 <ul>
 	<li>Fully Rename a C++ Project</li>
-	<li>Rename a C++ class + all references</li>
+	<li>Rename a C++ class and all references</li>
+    <li>Generate new C++ module</li>
 	<li>Backup project files from inside the application</li>
 </ul>
 
 ## Planned Features
 <ul>
-    <li>Generate new C++ module</li>
+    <li>Generate custom Assets/Factory class</li>
     <li>Generate new C++ plugin</li>
 </ul>
 
@@ -33,5 +34,9 @@ Built Program Download: https://samcarey.itch.io/ue4-tools-open-source-tool
 	<li><strong>Version 1.1.1 (Bug Fixes)</strong></li>
 	<ul>
 		<li>Fixed a bug where blueprints(which have user-defined C++ parents) become unlinked upon renaming a project or class</li>
+	</ul>
+    <li><strong>Version 1.2 </strong></li>
+	<ul>
+		<li>Added a tool for creating new c++ code modules</li>
 	</ul>
 </ul>

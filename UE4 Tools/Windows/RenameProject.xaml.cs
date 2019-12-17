@@ -98,7 +98,7 @@ namespace UE4_Tools
                     if (GlobalFunction.ProjectBackupPrompt(ProjectSelector.Directory, ProjectSelector.FileName))
                     {
                         RenameProjectFiles();
-                        MessageBox.Show("Your project has been renamed\nFollow steps on next page to open your project for first time");
+                        MessageBox.Show("Your project has been renamed\nFollow steps on next page to open your project for the first time");
                         Tutorial Temp = new Tutorial();
                         Temp.Show();
                         Close();

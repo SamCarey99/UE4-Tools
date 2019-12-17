@@ -18,8 +18,9 @@
             <Button x:Name="RenameProject_btn" Content="Rename C++ Project" Margin="10,0" Click="RenameProject_btn_Click" Width="200" Height="30" FontWeight="Bold"/>
             <Button x:Name="RenameClass_btn" Content="Rename C++ Class" Margin="10,5,10,0" Click="RenameClass_btn_Click"  Width="200" Height="30" FontWeight="Bold"/>
             <Label x:Name="Create_L" Content="Create" HorizontalAlignment="Center" Margin="92,20,92,0"/>
-            <Button x:Name="CreateModule_btn" Content="Create C++ Module" Margin="10,0" Click="CreateModule_btn_Click" Background="#FF838080"  Width="200" Height="30" FontWeight="Bold"/>
+            <Button x:Name="CreateModule_btn" Content="Create C++ Module" Margin="10,0" Click="CreateModule_btn_Click" Width="200" Height="30" FontWeight="Bold"/>
             <Button x:Name="CreatePlugin_btn" Content="Create C++ Plugin" Margin="10,5,10,0" Click="CreatePlugin_btn_Click" Background="#FF838080"  Width="200" Height="30" FontWeight="Bold"/>
+            <Button x:Name="CreateFactory_btn" Content="Create Custom Asset / Factory" Margin="10,5,10,0" Background="#FF838080" Width="200" Height="30" FontWeight="Bold" Click="CreateFactory_btn_Click"/>
         </StackPanel>
 
         <Grid Grid.Row="1">
@@ -29,7 +30,7 @@
             </Grid.ColumnDefinitions>
             
             <StackPanel Orientation="Horizontal" Grid.Row="0">
-                <Label x:Name="label" Content="Version 1.1" HorizontalAlignment="Stretch" Grid.Row="1" VerticalAlignment="Stretch" VerticalContentAlignment="Center"/>
+                <Label x:Name="label" Content="Version 1.2" HorizontalAlignment="Stretch" Grid.Row="1" VerticalAlignment="Stretch" VerticalContentAlignment="Center"/>
                 <Button x:Name="Changelog_btn" Content="Change Log" Margin="10,4,10,3" FontWeight="Bold" Click="Changelog_btn_Click"></Button>
             </StackPanel>
             <StackPanel Grid.Column="1" Orientation="Horizontal" FlowDirection="RightToLeft">

@@ -58,15 +58,25 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Content Include="BoilerplateCode\Module\BoilerplateModule.Build.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Compile Include="GlobalFunction.cs" />
+    <Compile Include="ModuleAndPluginType.cs" />
     <Compile Include="Windows\ChangeLog.xaml.cs">
       <DependentUpon>ChangeLog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Components\SelectBoxComponent.xaml.cs">
+      <DependentUpon>SelectBoxComponent.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\Components\ValidatableInputComponent.xaml.cs">
       <DependentUpon>ValidatableInputComponent.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\Components\ProjectBackupProgressBar.xaml.cs">
       <DependentUpon>ProjectBackupProgressBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\CreateModule.xaml.cs">
+      <DependentUpon>CreateModule.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
@@ -84,11 +94,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\Components\SelectBoxComponent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\Components\ValidatableInputComponent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\Components\ProjectBackupProgressBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\CreateModule.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -162,6 +180,23 @@
   <ItemGroup>
     <Resource Include="Resources\GitHubIcon.png" />
     <Resource Include="Resources\ItchIcon.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="BoilerplateCode\Module\BoilerplateUproject.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BoilerplateCode\Module\BoilerplateStartUpCPP.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="BoilerplateCode\Module\BoilerplateTargetFile.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Content Include="BoilerplateCode\Module\BoilerplateStartUpH.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
