@@ -1,0 +1,15 @@
+#pragma once
+
+#include "CoreMinimal.h"
+#include "UObject/NoExportTypes.h"
+#include "CustomAssetName.generated.h"
+
+UCLASS(Blueprintable, BlueprintType)
+class ProjectNameAPI UCustomAssetName : public UObject
+{
+	GENERATED_BODY()
+
+protected:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (ToolTip = "An Example Property"))
+	FString ExampleProperty;
+};

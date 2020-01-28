@@ -1,0 +1,14 @@
+#include "CustomAssetFactoryName.h"
+#include "CustomAssetName.h"
+
+UCustomAssetFactoryName::UCustomAssetFactoryName() : Super()
+{
+	bCreateNew = true;
+	bEditAfterNew = true;
+	SupportedClass = UCustomAssetName::StaticClass();
+}
+
+UObject* UCustomAssetFactoryName::FactoryCreateNew(UClass* InClass, UObject* InParent, FName InName, EObjectFlags Flags, UObject* Context, FFeedbackContext* Warn, FName CallingContext)
+{
+	return NewObject<UCustomAssetName>(InParent, InClass, InName, Flags);
+}

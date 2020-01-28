@@ -60,7 +60,8 @@ namespace UE4_Tools.Windows.Components
                 }
                 else
                 {
-                    PathBox_L.Content = ShowFileExtension ? FileName + FileType : FileName;
+                    
+                    PathBox_L.Content = ShowFileExtension ? Path.GetFileName(FullPathAndFile) : FileName;
                 }
                 Select_btn.Content = "Change";
             }

@@ -1,0 +1,85 @@
+﻿<Window x:Class="UE4_Tools.Windows.CreateCustomAsset"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UE4_Tools.Windows"
+        xmlns:View="clr-namespace:UE4_Tools.Windows.Components"
+        mc:Ignorable="d"
+        Title="CreateCustomAsset" Height="825.5" Width="800">
+    <Grid>
+        <TabControl x:Name="tabControl">
+            <TabItem Header="Asset Settings" FontSize="22">
+                <StackPanel HorizontalAlignment="Stretch" Margin="5" VerticalAlignment="Stretch">
+                    <View:FileSelectorComponent x:Name="ProjectSelector" 
+                                           ShowFullPath="False"  
+                                           ShowFileExtension="True" 
+                                           FileType=".uproject" 
+                                           FileTypeName="Unreal Engine Project File (.uproject)" 
+                                           NotSelectedMessage="You must select a project to continue"
+                                           DefaultValue="SELECT PROJECT FILE (.uproject)"/>
+
+                    <View:FileSelectorComponent x:Name="EditorModuleSelector" 
+                                           ShowFullPath="False"  
+                                           ShowFileExtension="True" 
+                                           FileType=".build.cs" 
+                                           FileTypeName="Module build file (.build.cs)" 
+                                           NotSelectedMessage="You must select an EditorModule to continue"
+                                           DefaultValue="SELECT EditorModule (.build.cs)"/>
+                    <View:SelectBoxComponent x:Name="CreateType_SB" HelperText="Create Type" MyChangeBoxEventHandler="CreateType_SB_MyChangeBoxEventHandler" EnumValues="CreateFactoryType" DefaultSelected="0" Margin="0,30,0,0"/>
+                    <View:ValidatableInputComponent x:Name="NewAssetName" HelperText="New Asset Name" InputText="CustomAssetName" 
+                                            Validation_Empty="true" 
+                                            Validation_HasSpace="true" 
+                                            Validation_StartsWithNumber="true"/>
+                    <View:FileSelectorComponent x:Name="SelectExistingClass_SB" 
+                                           ShowFullPath="False"  
+                                           ShowFileExtension="true" 
+                                           FileType=".h" 
+                                           FileTypeName=".h" 
+                                           NotSelectedMessage="You must select a project to continue"
+                                           DefaultValue="Select UObject Class" IsEnabled="False"/>
+
+                    <Button x:Name="CreateAsset_btn" Content="Create Asset / Factory" Height="50" Margin="70,30,70,0" FontSize="24" Click="CreateAsset_btn_Click" />
+                    <Button x:Name="ReturnHome_btn" Content="Return Home" Height="40" Width="200" Margin="0,60,0,0" FontSize="18" Click="ReturnHome_btn_Click"/>
+
+                </StackPanel>
+            </TabItem>
+          
+            <TabItem Header="Custom Editor Settings" FontSize="22">
+                <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <StackPanel HorizontalAlignment="Stretch" Margin="5" VerticalAlignment="Stretch" IsEnabled="False">
+                        <View:SelectBoxComponent x:Name="UseEditorSettings_SB" HelperText="Include Extra Editor Settings" EnumValues="UsingEditorSetting" DefaultSelected="1" Margin="0,0,0,20"/>
+                        <View:FileSelectorComponent x:Name="IconSelector" 
+                                           ShowFullPath="False"  
+                                           ShowFileExtension="False" 
+                                           FileType=".jpg" 
+                                           FileTypeName="jpg" 
+                                           NotSelectedMessage="You must select a project to continue"
+                                           DefaultValue="No Asset Icon"/>
+                        <View:SelectBoxComponent x:Name="Color_SB" HelperText="Blueprint Color" EnumValues="UE4SupportedColors" DefaultSelected="0"/>
+                        <View:SelectBoxComponent x:Name="AssetCategory_SB" HelperText="Asset Category" EnumValues="AssetTypeCategories"  DefaultSelected="9"/>
+
+
+                        <View:ValidatableInputComponent x:Name="Displayname" HelperText="Editor Display Name" InputText="EditorName"/>
+                        <View:ValidatableInputComponent x:Name="Tooltip" HelperText="Editor Hover Tooltip" InputText="HoverTooltip"/>
+
+                        <Label Content="Context Actions" FontSize="30" HorizontalContentAlignment="Center"/>
+                        <Label Content="Context Actions are functions which can be found when a user right-clicks on an asset" FontSize="16" HorizontalContentAlignment="Center"/>
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Name="CreateContextAction_btn" Content="Add New Action" Margin="10" Padding="5" Click="CreateContextAction_btn_Click"></Button>
+                                <Button Name="ClearContextActions_btn" Content="Clear All Action" Margin="10" Padding="5" Click="ClearContextActions_btn_Click"></Button>
+                            </StackPanel>
+                            <ScrollViewer Height="242">
+                                <StackPanel Name="Actions" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="LightGray">
+                                    <View:ContextActionComponent></View:ContextActionComponent>
+                                </StackPanel>
+                            </ScrollViewer>
+                        </StackPanel>
+                    </StackPanel>
+                    <TextBlock Text="Under Development" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="50" FontWeight="Bold"></TextBlock>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

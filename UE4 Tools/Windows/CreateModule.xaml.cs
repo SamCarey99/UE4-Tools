@@ -76,6 +76,7 @@ namespace UE4_Tools.Windows
         {
             string ProjectPath = ProjectSelector.Directory;
             string ModuleName = NewModuleName.InputText;
+            bool IsEditor = ModuleType_SB.Select_CB.SelectedValue.ToString().Equals("Editor");
 
             GlobalFunction.RemoveDirectoryIfValid(ProjectPath + "/Saved");
             GlobalFunction.RemoveDirectoryIfValid(ProjectPath + "/Intermediate");
@@ -103,6 +104,13 @@ namespace UE4_Tools.Windows
 
                 string BuildFile    = File.ReadAllText(@"../../BoilerplateCode/Module/BoilerplateModule.Build.txt").Replace("BoilerplateModule", ModuleName);
                 BuildFile = BuildFile.Replace("BoilerplateNameOfProject", ProjectSelector.FileName);
+
+                //Only include UnrealEd if creating a editor class
+                if (!IsEditor)
+                {
+                    BuildFile = BuildFile.Replace(", \"UnrealEd\"", "");
+                }
+
                 string PublicFile   = File.ReadAllText(@"../../BoilerplateCode/Module/BoilerplateStartUpH.txt").Replace("BoilerplateModule", ModuleName);
                 string PrivateFile  = File.ReadAllText(@"../../BoilerplateCode/Module/BoilerplateStartUpCPP.txt").Replace("BoilerplateModule", ModuleName);
 
@@ -116,7 +124,7 @@ namespace UE4_Tools.Windows
                 string TargetGameEditor = File.ReadAllText(ProjectPath + "/Source/" + ProjectSelector.FileName + "Editor.Target.cs");
 
                 string NewTarget = File.ReadAllText(@"../../BoilerplateCode/Module/BoilerplateTargetFile.txt");
-                NewTarget = NewTarget.Replace("BoilerplateNameOfProject", ProjectSelector.FileName);
+                //NewTarget = NewTarget.Replace("BoilerplateNameOfProject", ProjectSelector.FileName);
                 NewTarget = NewTarget.Replace("BoilerplateModule", ModuleName);
 
                 Results = Regex.Matches(TargetGame, @"}", RegexOptions.Singleline);
@@ -124,8 +132,12 @@ namespace UE4_Tools.Windows
 
                 Results = Regex.Matches(TargetGameEditor, @"}", RegexOptions.Singleline);
                 string NewTargetGameEditor = TargetGameEditor.Insert(Results[Results.Count - 2].Index, NewTarget + Environment.NewLine + "\t");
-                File.WriteAllText(ProjectPath + "/Source/" + ProjectSelector.FileName + ".Target.cs", NewTargetGame);
+
                 File.WriteAllText(ProjectPath + "/Source/" + ProjectSelector.FileName + "Editor.Target.cs", NewTargetGameEditor);
+                if (!IsEditor)
+                {
+                    File.WriteAllText(ProjectPath + "/Source/" + ProjectSelector.FileName + ".Target.cs", NewTargetGame);
+                }
             #endregion
         }
     }

@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="UE4_Tools.Windows.Components.ContextActionComponent"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UE4_Tools.Windows.Components"
+             xmlns:View="clr-namespace:UE4_Tools.Windows.Components"
+             mc:Ignorable="d" 
+             d:DesignHeight="80" d:DesignWidth="600">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="80"/>
+        </Grid.ColumnDefinitions>
+        <View:ValidatableInputComponent x:Name="TextInput" HelperText="Action Name" InputText="ActionName"
+                                            Validation_Empty="True" 
+                                            Validation_HasSpace="True" 
+                                            Validation_StartsWithNumber="True"/>
+        <Button Grid.Column="1" VerticalAlignment="Stretch" Margin="15" Background="#FF272727" Click="Button_Click" >
+            <Image Source="/UE4 Tools;component/Resources/Cross.png" />
+        </Button>
+       
+    </Grid>
+</UserControl>

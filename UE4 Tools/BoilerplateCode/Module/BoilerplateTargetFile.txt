@@ -1,1 +1,1 @@
-	ExtraModuleNames.AddRange( new string[] { "BoilerplateNameOfProject", "BoilerplateModule" } );
+	ExtraModuleNames.AddRange( new string[] { "BoilerplateModule" } );

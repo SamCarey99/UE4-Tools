@@ -68,7 +68,9 @@ namespace UE4_Tools
 
         private void CreateFactory_btn_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("In Development");
+            CreateCustomAsset temp = new CreateCustomAsset();
+            temp.Show();
+            Close();
         }
     }
 }

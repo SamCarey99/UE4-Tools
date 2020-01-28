@@ -40,6 +40,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -58,6 +60,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Resource Include="Resources\Cross.png" />
+    <Resource Include="BoilerplateCode\Factory\BoilerplateFactory CPP.txt" />
+    <Resource Include="BoilerplateCode\Factory\BoilerplateFactory Header.txt" />
+    <Resource Include="BoilerplateCode\Factory\BoilerPlateUObject Header.txt" />
     <Content Include="BoilerplateCode\Module\BoilerplateModule.Build.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -65,6 +71,9 @@
     <Compile Include="ModuleAndPluginType.cs" />
     <Compile Include="Windows\ChangeLog.xaml.cs">
       <DependentUpon>ChangeLog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Components\ContextActionComponent.xaml.cs">
+      <DependentUpon>ContextActionComponent.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\Components\SelectBoxComponent.xaml.cs">
       <DependentUpon>SelectBoxComponent.xaml</DependentUpon>
@@ -74,6 +83,9 @@
     </Compile>
     <Compile Include="Windows\Components\ProjectBackupProgressBar.xaml.cs">
       <DependentUpon>ProjectBackupProgressBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\CreateCustomAsset.xaml.cs">
+      <DependentUpon>CreateCustomAsset.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\CreateModule.xaml.cs">
       <DependentUpon>CreateModule.xaml</DependentUpon>
@@ -94,6 +106,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\Components\ContextActionComponent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\Components\SelectBoxComponent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -103,6 +119,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\Components\ProjectBackupProgressBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\CreateCustomAsset.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

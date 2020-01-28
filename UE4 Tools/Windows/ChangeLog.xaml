@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UE4_Tools"
         mc:Ignorable="d"
-        Title="ChangeLog" Height="450" Width="543.538">
+        Title="ChangeLog" Height="710.5" Width="543.538">
     <Grid>
         <StackPanel HorizontalAlignment="Stretch" Margin="5" VerticalAlignment="Stretch" >
             <Grid Margin="0,0,0,10">
@@ -35,8 +35,19 @@
             <Grid Margin="0,0,0,10">
                 <Rectangle Fill="#FFF4F4F5"  Stroke="Black"/>
                 <StackPanel HorizontalAlignment="Stretch" Margin="5" VerticalAlignment="Stretch" >
-                    <Label Content="Version 1.2 (Current)" FontWeight="Bold"/>
+                    <Label Content="Version 1.2" FontWeight="Bold"/>
                     <Label Content="-Added a tool for creating new c++ code modules" Margin="20,0,0,0" Padding="2" Height="39"/>
+                </StackPanel>
+            </Grid>
+            <Grid Margin="0,0,0,10">
+                <Rectangle Fill="#FFF4F4F5"  Stroke="Black"/>
+                <StackPanel HorizontalAlignment="Stretch" Margin="5" VerticalAlignment="Stretch" >
+                    <Label Content="Version 1.3 (Current)" FontWeight="Bold"/>
+                    <Label Content="-Added a tool which generates new blueprint asset types with an accompanying factory &#xD;&#xA;class." Margin="20,0,0,0" Padding="2" Height="36"/>
+                    <Label Content="-Added the groundwork for custom editor code within generated assets e.g. custom icons, &#xD;&#xA;colours, right-click actions, categories etc." Margin="20,0,0,0" Padding="2" Height="36"/>
+                    <Label Content="-Fixed crash while creating modules." Margin="20,0,0,0" Padding="2" Height="20"/>
+                    <Label Content="-Fixed an issue where generated editor modules would prevent a game from building successfully" Margin="20,0,0,0" Padding="2" Height="20"/>
+                    <Label Content="-&quot;UnrealEd&quot; is now automatically included in generated editor modules." Margin="20,0,0,0" Padding="2" Height="20"/>
                 </StackPanel>
             </Grid>
             <Button x:Name="ReturnHome_btn" Content="Return Home" Height="40" Width="200" Margin="0,60,0,0" FontSize="18" Click="ReturnHome_btn_Click"/>

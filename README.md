@@ -6,19 +6,19 @@ UE4 tools is a set of tools created to perform several tedious tasks related to 
 	<li>Fully Rename a C++ Project</li>
 	<li>Rename a C++ class and all references</li>
     <li>Generate new C++ module</li>
+    <li>Generate custom Assets with factory classes</li>
 	<li>Backup project files from inside the application</li>
 </ul>
 
 ## Planned Features
 <ul>
-    <li>Generate custom Assets/Factory class</li>
-    <li>Generate new C++ plugin</li>
+    <li>Generate editor code for custom assets e.g. categories, tooltips, custom context actions(right-click actions), colours and icons.</li>
 </ul>
 
 ## Download Versions
 Built Program Download: https://samcarey.itch.io/ue4-tools-open-source-tool
 
-## Built Program Change Log
+## Change Log
 <ul>
 	<li><strong>Version 1.0</strong></li>
 	<ul>
@@ -38,5 +38,13 @@ Built Program Download: https://samcarey.itch.io/ue4-tools-open-source-tool
     <li><strong>Version 1.2 </strong></li>
 	<ul>
 		<li>Added a tool for creating new c++ code modules</li>
+	</ul>
+        <li><strong>Version 1.3 </strong></li>
+	<ul>
+		<li>Added a tool which generates new blueprint asset types with an accompanying factory class.</li>
+        <li>Added the groundwork for custom editor code within generated assets e.g. custom icons, colours, right-click actions, categories etc.</li>
+        <li>Fixed crash while creating modules.</li>
+        <li>Fixed an issue where generated editor modules would prevent a game from building successfully.</li>
+        <li>"UnrealEd" is now automatically included in generated editor modules.</li>
 	</ul>
 </ul>
