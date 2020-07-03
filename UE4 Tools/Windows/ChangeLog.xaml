@@ -56,7 +56,7 @@
             <StackPanel HorizontalAlignment="Stretch" Margin="5" VerticalAlignment="Stretch" >
               <Label Content="Version 5.0 (Current)" FontWeight="Bold"/>
               <Label Content="-Added options for generating FAssetTypeActions_Base classes." Margin="20,0,0,0" Padding="2" Height="20"/>
-              <Label Content="-Fixed potential crash when generating custom assets." Margin="20,0,0,0" Padding="2" Height="20"/>
+              <Label Content="-Fixed crash when generating custom assets." Margin="20,0,0,0" Padding="2" Height="20"/>
               <Label Content="-Minor UI size and layout tweaks." Margin="20,0,0,0" Padding="2" Height="20"/>
             </StackPanel>
           </Grid>
