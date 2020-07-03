@@ -5,20 +5,16 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:UE4_Tools.Windows.Components"
              xmlns:View="clr-namespace:UE4_Tools.Windows.Components"
-             mc:Ignorable="d" 
-             d:DesignHeight="80" d:DesignWidth="600">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="80"/>
-        </Grid.ColumnDefinitions>
-        <View:ValidatableInputComponent x:Name="TextInput" HelperText="Action Name" InputText="ActionName"
-                                            Validation_Empty="True" 
-                                            Validation_HasSpace="True" 
-                                            Validation_StartsWithNumber="True"/>
-        <Button Grid.Column="1" VerticalAlignment="Stretch" Margin="15" Background="#FF272727" Click="Button_Click" >
-            <Image Source="/UE4 Tools;component/Resources/Cross.png" />
-        </Button>
-       
+             mc:Ignorable="d" Height="45" Width="450" MaxHeight="45" >
+
+  <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Rectangle Fill="#FFEAEAEA" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="2.5"/>
+        <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="5" Orientation="Horizontal">
+            <TextBox x:Name="Name_TB" TextWrapping="Wrap" Text="Action Name" Width="119" VerticalContentAlignment="Center" FontSize="10" Margin="0,0,15,0"/>
+            <TextBox x:Name="Tooltip_TB" TextWrapping="Wrap" Text="Some Example Tooltip" Width="259" VerticalContentAlignment="Center" FontSize="10" Margin="0,0,15,0"/>
+            <Button x:Name="button" Width="25" Height="25" HorizontalAlignment="Right" Click="Button_Click">
+                <Image x:Name="image" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="/UE4 Tools;component/Resources/Cross.png"/>
+            </Button>
+        </StackPanel>
     </Grid>
 </UserControl>

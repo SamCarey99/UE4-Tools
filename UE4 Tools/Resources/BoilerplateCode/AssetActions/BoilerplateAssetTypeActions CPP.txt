@@ -1,0 +1,45 @@
+#include "CustomAssetActionName.h"
+#include "CustomAssetName.h"
+
+#include "Framework/MultiBox/MultiBoxBuilder.h"
+#include "Framework/Commands/UIAction.h"
+#include "Textures/SlateIcon.h"
+
+
+FCustomAssetActionName::FCustomAssetActionName(){}
+
+uint32 FCustomAssetActionName::GetCategories()
+{
+	return EAssetTypeCategories::BoilerPlate_Category;
+}
+FColor FCustomAssetActionName::GetTypeColor() const
+{
+	return FColor::BoilerPlate_HexColor;
+}
+UClass * FCustomAssetActionName::GetSupportedClass() const
+{
+	return UCustomAssetName::StaticClass();
+}
+FText FCustomAssetActionName::GetName() const
+{
+	return FText::FromString("BoilerPlate_EditorName");
+}
+FText FCustomAssetActionName::GetAssetDescription(const FAssetData & AssetData) const
+{
+	return FText::FromString("BoilerPlate_EditorDescription");
+}
+
+//Actions
+void FCustomAssetActionName::GetActions(const TArray<UObject*>& InObjects, FMenuBuilder &MenuBuilder)
+{
+	FAssetTypeActions_Base::GetActions(InObjects, MenuBuilder);
+	
+	//Reference to all selected assets
+	auto SelectedAssets = GetTypedWeakObjectPtrs<UCustomAssetName>(InObjects);
+	
+	BoilerPlate_ActionsList
+}
+bool FCustomAssetActionName::HasActions(const TArray<UObject*>& InObjects) const
+{
+	return BoilerPlate_HasActions;
+}

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -101,6 +102,13 @@ namespace UE4_Tools
             { 
                 File.Copy(i, i.Replace(ProjectPath, BackupPath), true);
             }
+        }
+
+        public static string FindResourceTextFile (string FileName)
+        {
+            var AssemblyRef = Assembly.GetExecutingAssembly();
+            string ResourceName = AssemblyRef.GetManifestResourceNames().Single(str => str.EndsWith(FileName + ".txt"));
+            return new StreamReader(AssemblyRef.GetManifestResourceStream(ResourceName)).ReadToEnd();
         }
     }
 }

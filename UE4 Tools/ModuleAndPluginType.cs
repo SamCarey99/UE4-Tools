@@ -64,30 +64,22 @@ namespace UE4_Tools
     }
 
     /// <summary>
-    /// Should the system new asset be made for an existing object class
-    /// </summary>
-    public enum CreateFactoryType
-    {
-        NewUObject,
-        ExistingUObject
-    }
-
-    /// <summary>
     /// Custom asset colours supported in the UE4 editor
     /// </summary>
     public enum UE4SupportedColors
     {
-        Red,
+        Black,
         Blue,
+        Cyan,
+        Emerald,
         Green,
-        //Add More
-    }
-    /// <summary>
-    /// Should Extra custom editor settings be included when creating an asset
-    /// </summary>
-    public enum UsingEditorSetting
-    {
-        Include,
-        DontInclude,
+        Magenta,
+        Orange,
+        Purple,
+        Red,
+        Silver,
+        Turquoise,
+        White,
+        Yellow
     }
 }

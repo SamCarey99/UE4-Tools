@@ -4,6 +4,5 @@
              xmlns:local="clr-namespace:UE4_Tools"
              StartupUri="Windows/MainMenu.xaml">
     <Application.Resources>
-         
     </Application.Resources>
 </Application>

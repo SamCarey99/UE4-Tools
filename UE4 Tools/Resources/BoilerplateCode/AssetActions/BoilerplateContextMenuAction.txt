@@ -1,0 +1,19 @@
+	MenuBuilder.AddMenuEntry(
+		FText::FromString("BoilerPlate_RightClickActionName"),
+		FText::FromString("BoilerPlate_RightClickActionDescription"),
+		FSlateIcon(),
+		FUIAction(FExecuteAction::CreateLambda([=]
+		{
+			//Loop Through all selected assets
+			for (auto& i : SelectedAssets)
+			{
+				if (i.IsValid())
+				{
+					//Perfom action here on each asset using i
+					
+					i->PostEditChange();
+					i->MarkPackageDirty();
+				}
+			}
+		}))
+	);

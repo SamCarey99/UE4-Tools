@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:UE4_Tools.Windows"
         xmlns:View="clr-namespace:UE4_Tools.Windows.Components"
         mc:Ignorable="d"
-        Title="CreateCustomAsset" Height="825.5" Width="800">
+        Title="CreateCustomAsset" Height="800" Width="650">
+
     <Grid>
         <TabControl x:Name="tabControl">
             <TabItem Header="Asset Settings" FontSize="22">
@@ -18,15 +19,14 @@
                                            FileTypeName="Unreal Engine Project File (.uproject)" 
                                            NotSelectedMessage="You must select a project to continue"
                                            DefaultValue="SELECT PROJECT FILE (.uproject)"/>
-
                     <View:FileSelectorComponent x:Name="EditorModuleSelector" 
-                                           ShowFullPath="False"  
-                                           ShowFileExtension="True" 
-                                           FileType=".build.cs" 
-                                           FileTypeName="Module build file (.build.cs)" 
-                                           NotSelectedMessage="You must select an EditorModule to continue"
-                                           DefaultValue="SELECT EditorModule (.build.cs)"/>
-                    <View:SelectBoxComponent x:Name="CreateType_SB" HelperText="Create Type" MyChangeBoxEventHandler="CreateType_SB_MyChangeBoxEventHandler" EnumValues="CreateFactoryType" DefaultSelected="0" Margin="0,30,0,0"/>
+                                                ShowFullPath="False"  
+                                                ShowFileExtension="True" 
+                                                FileType=".build.cs" 
+                                                FileTypeName="Module build file (.build.cs)" 
+                                                NotSelectedMessage="You must select an EditorModule to continue"
+                                                DefaultValue="SELECT EditorModule (.build.cs)"/>
+                    <View:TickBoxComponent x:Name="CreateType_CB" HelperText="Create New Type" IsChecked="True" Margin="0,30,0,0" MyCheckedChangeEventHandler="CreateType_SB_MyCheckedChangeEventHandler"/>
                     <View:ValidatableInputComponent x:Name="NewAssetName" HelperText="New Asset Name" InputText="CustomAssetName" 
                                             Validation_Empty="true" 
                                             Validation_HasSpace="true" 
@@ -39,46 +39,51 @@
                                            NotSelectedMessage="You must select a project to continue"
                                            DefaultValue="Select UObject Class" IsEnabled="False"/>
 
-                    <Button x:Name="CreateAsset_btn" Content="Create Asset / Factory" Height="50" Margin="70,30,70,0" FontSize="24" Click="CreateAsset_btn_Click" />
-                    <Button x:Name="ReturnHome_btn" Content="Return Home" Height="40" Width="200" Margin="0,60,0,0" FontSize="18" Click="ReturnHome_btn_Click"/>
 
+                    <Button x:Name="CreateAsset_btn" Content="Create Asset" Height="50" Width="200" Margin="10" FontSize="24" Click="CreateAsset_btn_Click"/>
+                    <Button x:Name="ReturnHome_btn" Content="Return Home" Height="40" Width="150" FontSize="18" Click="ReturnHome_btn_Click"/>
                 </StackPanel>
             </TabItem>
-          
-            <TabItem Header="Custom Editor Settings" FontSize="22">
+            <TabItem Header="Asset Type Actions" FontSize="22">
                 <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                    <StackPanel HorizontalAlignment="Stretch" Margin="5" VerticalAlignment="Stretch" IsEnabled="False">
-                        <View:SelectBoxComponent x:Name="UseEditorSettings_SB" HelperText="Include Extra Editor Settings" EnumValues="UsingEditorSetting" DefaultSelected="1" Margin="0,0,0,20"/>
-                        <View:FileSelectorComponent x:Name="IconSelector" 
-                                           ShowFullPath="False"  
-                                           ShowFileExtension="False" 
-                                           FileType=".jpg" 
-                                           FileTypeName="jpg" 
-                                           NotSelectedMessage="You must select a project to continue"
-                                           DefaultValue="No Asset Icon"/>
-                        <View:SelectBoxComponent x:Name="Color_SB" HelperText="Blueprint Color" EnumValues="UE4SupportedColors" DefaultSelected="0"/>
-                        <View:SelectBoxComponent x:Name="AssetCategory_SB" HelperText="Asset Category" EnumValues="AssetTypeCategories"  DefaultSelected="9"/>
-
-
-                        <View:ValidatableInputComponent x:Name="Displayname" HelperText="Editor Display Name" InputText="EditorName"/>
-                        <View:ValidatableInputComponent x:Name="Tooltip" HelperText="Editor Hover Tooltip" InputText="HoverTooltip"/>
-
-                        <Label Content="Context Actions" FontSize="30" HorizontalContentAlignment="Center"/>
-                        <Label Content="Context Actions are functions which can be found when a user right-clicks on an asset" FontSize="16" HorizontalContentAlignment="Center"/>
-                        <StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <Button Name="CreateContextAction_btn" Content="Add New Action" Margin="10" Padding="5" Click="CreateContextAction_btn_Click"></Button>
-                                <Button Name="ClearContextActions_btn" Content="Clear All Action" Margin="10" Padding="5" Click="ClearContextActions_btn_Click"></Button>
-                            </StackPanel>
-                            <ScrollViewer Height="242">
-                                <StackPanel Name="Actions" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="LightGray">
-                                    <View:ContextActionComponent></View:ContextActionComponent>
-                                </StackPanel>
-                            </ScrollViewer>
+                    <StackPanel HorizontalAlignment="Stretch" Margin="5" VerticalAlignment="Stretch">
+                        <View:TickBoxComponent IsChecked="False" x:Name="UseAssetType_CB" Height="6" HelperText="Create Asset Actions" MyCheckedChangeEventHandler="UseEditorSettings_SB_MyCheckedChangeEventHandler"/>
+                        <TextBlock Margin="5,0,0,0" TextWrapping="WrapWithOverflow" FontSize="16" >
+                          Important note - Using these settings will generate an additional file of type FAssetTypeActions_Base within your editor module. This must be registered within the module before it can be used. Additionally, your module must implement Slate and SlateCore as PublicDependencies.
+                        </TextBlock>
+                        <Button FontSize="16" x:Name="Details_btn" Content="View Requirement Details" Margin="5,0,0,20" Padding="5" Click="Details_btn_Click" Width="199" HorizontalAlignment="Left"/>
+                        <StackPanel Name="ContentHolder_sp" IsEnabled="False" Height="731">
+                            <View:SelectBoxComponent x:Name="Color_SB" HelperText="Blueprint Color" EnumValues="UE4SupportedColors" DefaultSelected="0"/>
+                            <View:SelectBoxComponent x:Name="AssetCategory_SB" HelperText="Asset Category" EnumValues="AssetTypeCategories"  DefaultSelected="9"/>
+                            <View:ValidatableInputComponent x:Name="EditorDisplayName" HelperText="Editor Display Name" InputText="EditorName"/>
+                            <View:ValidatableInputComponent x:Name="EditorTooltip" HelperText="Editor Hover Tooltip" InputText="HoverTooltip" d:IsLocked="True"/>
+                            <Label Content="Context Actions" FontSize="30" HorizontalContentAlignment="Center" Margin="0,30,0,0"/>
+                            <TextBlock Margin="5,0,0,0" TextWrapping="WrapWithOverflow" FontSize="16" >
+                              Context actions are actions which are found on an asset when a user right-clicks. e.g. Save, Show in Folder View, Copy Folder Path, etc. The following will add a list of custom actions with a name and tooltip. These can then be edited manually to perform any action.
+                            </TextBlock>
+                            <TextBlock x:Name="NumberOfActions_TB" Margin="5,0,0,0" TextWrapping="WrapWithOverflow" FontSize="20" TextAlignment="Center" ><Run Text="Number of"/><Run Text=" Context"/><Run Text=" Actions: 0"/></TextBlock>
+                            <Button x:Name="OpenEditor" Content="Add/Remove Context Actions" Padding="10" Margin="10" Width="300" Click="OpenEditor_Click"/>
                         </StackPanel>
                     </StackPanel>
-                    <TextBlock Text="Under Development" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="50" FontWeight="Bold"></TextBlock>
+
+                    <Grid Visibility="Hidden" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Name="ContextActionEditor" >
+                        <Rectangle Opacity="0.8" Fill="#FF1A1A19" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <Rectangle Fill="#FFC7C7C7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="30"/>
+                        <StackPanel Margin="60">
+                            <ScrollViewer Height="360" Margin="10,0">
+                                <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Name="ActionList_SP">
+                                </StackPanel>
+                            </ScrollViewer>
+                            <StackPanel Orientation="Vertical" Height="251">
+                                <Button Name="CreateContextAction_btn" Content="Add New Action" Margin="5" Padding="5" Click="CreateContextAction_btn_Click"></Button>
+                                <Button Name="ClearContextActions_btn" Content="Clear All Action" Margin="5" Padding="5" Click="ClearContextActions_btn_Click"></Button>
+                                <Button Name="Back_btn" Content="Back" Margin="0,30,0,0" Padding="5" Click="Back_btn_Click"></Button>
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+
                 </Grid>
+
             </TabItem>
         </TabControl>
     </Grid>

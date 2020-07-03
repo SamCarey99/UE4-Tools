@@ -1,0 +1,3 @@
+IAssetTools& AssetTools = FModuleManager::LoadModuleChecked<FAssetToolsModule>("AssetTools").Get();
+TSharedRef<IAssetTypeActions> Action = MakeShareable(new FCustomAssetActionName());
+AssetTools.RegisterAssetTypeActions(Action);

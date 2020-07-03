@@ -27,7 +27,7 @@ namespace UE4_Tools.Windows.Components
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ((Panel)this.Parent).Children.Remove(this);
+            ((Panel)Parent).Children.Remove(this);
         }
     }
 }

@@ -1,19 +1,23 @@
-﻿<UserControl x:Class="UE4_Tools.Windows.Components.SelectBoxComponent"
+﻿<UserControl x:Class="UE4_Tools.Windows.Components.TickBoxComponent"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:UE4_Tools.Windows.Components"
-             mc:Ignorable="d" d:DesignWidth="600"  MaxHeight="50" MinHeight="50" Height="50
-">
+             mc:Ignorable="d" d:DesignWidth="600" MaxHeight="50" MinHeight="50" Height="50">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1.8*"/>
             <ColumnDefinition Width="2*"/>
+
         </Grid.ColumnDefinitions>
 
         <Rectangle Grid.ColumnSpan="2" Fill="#FFEAEAEA" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Margin="2.5"/>
-        <Label Grid.Column="0" x:Name="HelperText_L" Content="New Name Name" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5" FontSize="24" />
-        <ComboBox Grid.Column="1" x:Name="Select_CB"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="5" FontSize="24" VerticalContentAlignment="Center" BorderBrush="White" SelectionChanged="Select_CB_SelectionChanged"/>
+        <CheckBox Grid.Column="1" x:Name="Main_cb" Content="" Unchecked="CheckBox_Checked" Checked="CheckBox_Checked" ClickMode="Press" Margin="5,5" VerticalAlignment="Center" >
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="2" ScaleY="2.1" />
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+        <Label Grid.Column="0" x:Name="HelperText_L" Content="New Name Name" VerticalAlignment="Center"  HorizontalAlignment="Left" Margin="5" FontSize="24" />
     </Grid>
 </UserControl>

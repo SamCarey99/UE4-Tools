@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:UE4_Tools"
         xmlns:View="clr-namespace:UE4_Tools.Windows.Components"
         mc:Ignorable="d"
-        Title="Rename UE4 C++ Project" Height="374.366" Width="773.726">
+        Title="Rename UE4 C++ Project" Height="500" Width="650">
     <Grid>
         
         <StackPanel HorizontalAlignment="Stretch" Margin="5" VerticalAlignment="Stretch">
@@ -24,8 +24,8 @@
                                             Validation_HasSpace="True" 
                                             Validation_StartsWithNumber="true"/>
 
-            <Button x:Name="RenameProject_btn" Content="Rename Project" Height="50" Width="200" Margin="10" FontSize="24" Click="RenameProject_btn_Click"/>
-            <Button x:Name="ReturnHome_btn" Content="Return Home" Height="40" Width="200" Margin="0,60,0,0" FontSize="18" Click="ReturnHome_btn_Click"/>
+            <Button x:Name="RenameProject_btn" Content="Rename Class" Height="50" Width="200" Margin="10" FontSize="24" Click="RenameProject_btn_Click"/>
+            <Button x:Name="ReturnHome_btn" Content="Return Home" Height="40" Width="150" FontSize="18" Click="ReturnHome_btn_Click"/>
         </StackPanel>
 
     </Grid>

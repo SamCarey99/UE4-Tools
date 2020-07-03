@@ -14,6 +14,21 @@
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -61,12 +76,30 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Resource Include="Resources\Cross.png" />
-    <Resource Include="BoilerplateCode\Factory\BoilerplateFactory CPP.txt" />
-    <Resource Include="BoilerplateCode\Factory\BoilerplateFactory Header.txt" />
-    <Resource Include="BoilerplateCode\Factory\BoilerPlateUObject Header.txt" />
-    <Content Include="BoilerplateCode\Module\BoilerplateModule.Build.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <EmbeddedResource Include="Resources\BoilerplateCode\Factory\BoilerplateFactory CPP.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\BoilerplateCode\Factory\BoilerplateFactory Header.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\BoilerplateCode\Factory\BoilerPlateUObject Header.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\BoilerplateCode\AssetActions\BoilerplateAssetTypeActions CPP.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\BoilerplateCode\AssetActions\BoilerplateAssetTypeActions Header.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\BoilerplateCode\AssetActions\BoilerplateRegisterAssetActions.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\BoilerplateCode\AssetActions\BoilerplateContextMenuAction.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\BoilerplateCode\Module\BoilerplateModule.Build.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <Compile Include="GlobalFunction.cs" />
     <Compile Include="ModuleAndPluginType.cs" />
     <Compile Include="Windows\ChangeLog.xaml.cs">
@@ -74,6 +107,9 @@
     </Compile>
     <Compile Include="Windows\Components\ContextActionComponent.xaml.cs">
       <DependentUpon>ContextActionComponent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Components\TickBoxComponent.xaml.cs">
+      <DependentUpon>TickBoxComponent.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\Components\SelectBoxComponent.xaml.cs">
       <DependentUpon>SelectBoxComponent.xaml</DependentUpon>
@@ -109,6 +145,10 @@
     <Page Include="Windows\Components\ContextActionComponent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Components\TickBoxComponent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Windows\Components\SelectBoxComponent.xaml">
       <SubType>Designer</SubType>
@@ -201,22 +241,33 @@
     <Resource Include="Resources\GitHubIcon.png" />
     <Resource Include="Resources\ItchIcon.png" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Resource Include="BoilerplateCode\Module\BoilerplateUproject.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="BoilerplateCode\Module\BoilerplateStartUpCPP.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Resource Include="BoilerplateCode\Module\BoilerplateTargetFile.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Content Include="BoilerplateCode\Module\BoilerplateStartUpH.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <EmbeddedResource Include="Resources\BoilerplateCode\Module\BoilerplateUproject.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\BoilerplateCode\Module\BoilerplateStartUpCPP.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\BoilerplateCode\Module\BoilerplateTargetFile.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\BoilerplateCode\Module\BoilerplateStartUpH.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

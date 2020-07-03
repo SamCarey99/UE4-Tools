@@ -5,15 +5,17 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:UE4_Tools.Windows.Components"
              mc:Ignorable="d" 
-             d:DesignHeight="80" d:DesignWidth="600">
+             d:DesignHeight="60
+             " d:DesignWidth="600" MaxHeight="50" MinHeight="50" Height="50">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="1.5*"/>
+          <ColumnDefinition Width="1.8*"/>
+          <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
 
-        <Rectangle Grid.ColumnSpan="2" Fill="#FFEAEAEA" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Margin="5"/>
-        <Label  Grid.Column="1" x:Name="HelperText_L" Content="New Name Name" VerticalAlignment="Center"  HorizontalAlignment="Right" Margin="10" FontSize="24" />
-        <TextBox Grid.Column="0" x:Name="TextInput_tb"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="10" FontSize="24" Text="FileName" TextChanged="Name_tb_TextChanged" VerticalContentAlignment="Center"/>
+        <Rectangle Grid.ColumnSpan="2" Fill="#FFEAEAEA" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Margin="2.5"/>
+        <TextBox Grid.Column="1" x:Name="TextInput_tb"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="5" FontSize="24" Text="FileName" TextChanged="Name_tb_TextChanged" VerticalContentAlignment="Center"/>
+        <Label  Grid.Column="0" x:Name="HelperText_L" Content="New Name Name" VerticalAlignment="Center"  HorizontalAlignment="Left" Margin="5" FontSize="24" />
+        
     </Grid>
 </UserControl>

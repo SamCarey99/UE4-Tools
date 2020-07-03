@@ -85,7 +85,7 @@ namespace UE4_Tools.Windows
 
             #region Uproject
                 string FullUProject = File.ReadAllText(ProjectSelector.FullPathAndFile);
-                string NewUProject = "," + Environment.NewLine + File.ReadAllText(@"../../BoilerplateCode/Module/BoilerplateUproject.txt");
+                string NewUProject = "," + Environment.NewLine + GlobalFunction.FindResourceTextFile("BoilerplateUproject");
 
                 NewUProject = NewUProject.Replace("NameOfModule", ModuleName);
                 NewUProject = NewUProject.Replace("ModuleType",   ModuleType_SB.Select_CB.SelectedValue.ToString());
@@ -102,7 +102,7 @@ namespace UE4_Tools.Windows
                 Directory.CreateDirectory(NewDirectory + "/Public");
                 Directory.CreateDirectory(NewDirectory + "/Private");
 
-                string BuildFile    = File.ReadAllText(@"../../BoilerplateCode/Module/BoilerplateModule.Build.txt").Replace("BoilerplateModule", ModuleName);
+                string BuildFile = GlobalFunction.FindResourceTextFile("BoilerplateModule.Build").Replace("BoilerplateModule", ModuleName);
                 BuildFile = BuildFile.Replace("BoilerplateNameOfProject", ProjectSelector.FileName);
 
                 //Only include UnrealEd if creating a editor class
@@ -111,8 +111,8 @@ namespace UE4_Tools.Windows
                     BuildFile = BuildFile.Replace(", \"UnrealEd\"", "");
                 }
 
-                string PublicFile   = File.ReadAllText(@"../../BoilerplateCode/Module/BoilerplateStartUpH.txt").Replace("BoilerplateModule", ModuleName);
-                string PrivateFile  = File.ReadAllText(@"../../BoilerplateCode/Module/BoilerplateStartUpCPP.txt").Replace("BoilerplateModule", ModuleName);
+                string PublicFile = GlobalFunction.FindResourceTextFile("BoilerplateStartUpH").Replace("BoilerplateModule", ModuleName);
+                string PrivateFile = GlobalFunction.FindResourceTextFile("BoilerplateStartUpCPP").Replace("BoilerplateModule", ModuleName);
 
                 File.WriteAllText(NewDirectory + "/" + ModuleName + ".build.cs", BuildFile);
                 File.WriteAllText(NewDirectory + "/Public/" + ModuleName + ".h", PublicFile);
@@ -123,8 +123,7 @@ namespace UE4_Tools.Windows
                 string TargetGame = File.ReadAllText(ProjectPath + "/Source/" + ProjectSelector.FileName + ".Target.cs");
                 string TargetGameEditor = File.ReadAllText(ProjectPath + "/Source/" + ProjectSelector.FileName + "Editor.Target.cs");
 
-                string NewTarget = File.ReadAllText(@"../../BoilerplateCode/Module/BoilerplateTargetFile.txt");
-                //NewTarget = NewTarget.Replace("BoilerplateNameOfProject", ProjectSelector.FileName);
+                string NewTarget = GlobalFunction.FindResourceTextFile("BoilerplateTargetFile");
                 NewTarget = NewTarget.Replace("BoilerplateModule", ModuleName);
 
                 Results = Regex.Matches(TargetGame, @"}", RegexOptions.Singleline);

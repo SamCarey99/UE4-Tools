@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:UE4_Tools"
         xmlns:View="clr-namespace:UE4_Tools.Windows.Components"
         mc:Ignorable="d"
-        Title="RenameClass" Height="450" Width="800">
+        Title="RenameClass" Height="500" Width="650">
     <Grid>
         <StackPanel HorizontalAlignment="Stretch" Margin="5" VerticalAlignment="Stretch">
             <View:FileSelectorComponent x:Name="ProjectSelector" 
@@ -30,10 +30,14 @@
                                             Validation_Empty="true" 
                                             Validation_HasSpace="true" 
                                             Validation_StartsWithNumber="true"/>
+            <TextBlock Margin="5,0,0,0" TextWrapping="WrapWithOverflow" FontSize="16" >
+              You should load the project between multiple renames of the same class. Failing to do this may lead to unparented blueprint classes
+            </TextBlock>
 
-            <Label x:Name="label" Content="You should load the project between multiple renames of the same class. Failing to do this may lead to unparented blueprint classes"/>
+
             <Button x:Name="RenameClass_btn" Content="Rename Class" Height="50" Width="200" Margin="10" FontSize="24" Click="RenameClass_btn_Click"/>
-            <Button x:Name="ReturnHome_btn" Content="Return Home" Height="40" Width="200" Margin="0,60,0,0" FontSize="18" Click="ReturnHome_btn_Click"/>
+            <Button x:Name="ReturnHome_btn" Content="Return Home" Height="40" Width="150" FontSize="18" Click="ReturnHome_btn_Click"/>
+
         </StackPanel>
     </Grid>
 </Window>

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:UE4_Tools.Windows"
         xmlns:View="clr-namespace:UE4_Tools.Windows.Components"
         mc:Ignorable="d"
-        Title="CreateModule" Height="698" Width="584.534">
+        Title="CreateModule" Height="500" Width="650">
     <Grid>
         <StackPanel HorizontalAlignment="Stretch" Margin="5" VerticalAlignment="Stretch">
             <View:FileSelectorComponent x:Name="ProjectSelector" 
@@ -17,7 +17,7 @@
                                            NotSelectedMessage="You must select a project to continue"
                                            DefaultValue="SELECT PROJECT FILE (.uproject)"
             />
-            <View:ValidatableInputComponent x:Name="NewModuleName" HelperText="New Module Name" InputText="ModuleName" Margin="0,40,0,20"
+            <View:ValidatableInputComponent x:Name="NewModuleName" HelperText="New Module Name" InputText="ModuleName" Margin="0,20,0,20"
                                             Validation_Empty="true" 
                                             Validation_HasSpace="true" 
                                             Validation_StartsWithNumber="true"/>
@@ -28,7 +28,7 @@
 
 
             <Button x:Name="CreateModule_btn" Content="Create Module" Height="50" Width="200" Margin="10" FontSize="24" Click="CreateModule_btn_Click"/>
-            <Button x:Name="ReturnHome_btn" Content="Return Home" Height="40" Width="200" Margin="0,60,0,0" FontSize="18" Click="ReturnHome_btn_Click"/>
+            <Button x:Name="ReturnHome_btn" Content="Return Home" Height="40" Width="150" FontSize="18" Click="ReturnHome_btn_Click"/>
         </StackPanel>
     </Grid>
 </Window>
