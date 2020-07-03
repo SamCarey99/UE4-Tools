@@ -1,18 +1,15 @@
 # UE4 Tools
 UE4 tools is a set of tools created to perform several tedious tasks related to UE4 development.
 
-<strong>Current Features</strong>
+
+## Features
 <ul>
 	<li>Fully Rename a C++ Project</li>
 	<li>Rename a C++ class and all references</li>
-    <li>Generate new C++ module</li>
-    <li>Generate custom Assets with factory classes</li>
+    	<li>Generate new C++ module</li>
+    	<li>Generate custom Assets with factory classes</li>
 	<li>Backup project files from inside the application</li>
-</ul>
-
-## Planned Features
-<ul>
-    <li>Generate editor code for custom assets e.g. categories, tooltips, custom context actions(right-click actions), colours and icons.</li>
+	<li>Generate editor code for custom assets e.g. categories, tooltips, custom context actions(right-click actions) and colours.</li>
 </ul>
 
 ## Download Versions
