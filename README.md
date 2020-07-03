@@ -46,11 +46,11 @@ Built Program Download: https://samcarey.itch.io/ue4-tools-open-source-tool
         <li>Fixed crash while creating modules.</li>
         <li>Fixed an issue where generated editor modules would prevent a game from building successfully.</li>
         <li>"UnrealEd" is now automatically included in generated editor modules.</li>
-     <li><strong>Version 5.0 </strong></li>
+	</ul>
+	     <li><strong>Version 5.0 </strong></li>
 	<ul>
-		<li>Added options for generating FAssetTypeActions_Base classes.</li>
+	<li>Added options for generating FAssetTypeActions_Base classes.</li>
         <li>Fixed a crash when generating custom assets.</li>
         <li>Minor UI size and layout tweaks.</li>
 	</ul>
-	
 </ul>
