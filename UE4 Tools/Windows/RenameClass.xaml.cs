@@ -44,9 +44,22 @@ namespace UE4_Tools
                 File.WriteAllText(i, File.ReadAllText(i).Replace(ClassSelector.FileName, NameSelector.InputText));
             }
 
+
             //Rename .h and .cpp files
             File.Move(ClassSelector.Directory + "\\" + ClassSelector.FileName + ".h",   ClassSelector.Directory + "\\" + NameSelector.InputText + ".h");
-            File.Move(ClassSelector.Directory + "\\" + ClassSelector.FileName + ".cpp", ClassSelector.Directory + "\\" + NameSelector.InputText + ".cpp");
+
+            string CPPSameDirect = ClassSelector.Directory + "\\" + ClassSelector.FileName + ".cpp";
+            //If C++ and header file are in the same directory
+            if (File.Exists(CPPSameDirect))
+            {
+                File.Move(CPPSameDirect, ClassSelector.Directory + "\\" + NameSelector.InputText + ".cpp");
+            }
+            else
+            {
+                string PrivateDirect = Directory.GetParent(ClassSelector.Directory).FullName + "\\Private\\";
+                string CPPPublicPrivateMethod = PrivateDirect + ClassSelector.FileName + ".cpp";
+                File.Move(CPPPublicPrivateMethod, PrivateDirect +  NameSelector.InputText + ".cpp");
+            }
 
             GlobalFunction.ActiveRedirect(ProjectSelector.Directory, ClassSelector.FileName, NameSelector.InputText, true);
         }

@@ -30,7 +30,7 @@
             </Grid.ColumnDefinitions>
             
             <StackPanel Orientation="Horizontal" Grid.Row="0">
-                <Label x:Name="label" Content="Version 5.0" HorizontalAlignment="Stretch" Grid.Row="1" VerticalAlignment="Stretch" VerticalContentAlignment="Center"/>
+                <Label x:Name="label" Content="Version 5.1" HorizontalAlignment="Stretch" Grid.Row="1" VerticalAlignment="Stretch" VerticalContentAlignment="Center"/>
                 <Button x:Name="Changelog_btn" Content="Change Log" Margin="10,4,10,3" FontWeight="Bold" Click="Changelog_btn_Click"></Button>
             </StackPanel>
             <StackPanel Grid.Column="1" Orientation="Horizontal" FlowDirection="RightToLeft">
@@ -46,9 +46,5 @@
                 </TextBlock>
             </StackPanel>
         </Grid>
-        
-
-
-       
     </Grid>
 </Window>

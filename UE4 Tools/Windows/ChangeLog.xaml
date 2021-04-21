@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UE4_Tools"
         mc:Ignorable="d"
-        Title="ChangeLog" Height="710.5" Width="543.538">
+        Title="Change Log" Height="701.644" Width="543.538">
     <Grid>
       <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-        <ScrollViewer Height="585">
+        <ScrollViewer Height="574">
           <StackPanel HorizontalAlignment="Stretch" Margin="5" VerticalAlignment="Stretch" ><Grid Margin="0,0,0,10">
                 <Rectangle Fill="#FFF4F4F5"  Stroke="Black"/>
                 <StackPanel HorizontalAlignment="Stretch" Margin="5" VerticalAlignment="Stretch" >
@@ -29,7 +29,7 @@
             <Grid Margin="0,0,0,10">
                 <Rectangle Fill="#FFF4F4F5"  Stroke="Black"/>
                 <StackPanel HorizontalAlignment="Stretch" Margin="5" VerticalAlignment="Stretch" >
-                    <Label Content="Version 2.1 (Bug Fixes)" FontWeight="Bold"/>
+                    <Label Content="Version 2.1" FontWeight="Bold"/>
                     <Label Content="- Fixed a bug where blueprints(which have user-defined C++ parents) become unlinked&#10; upon renaming a project or class" Margin="20,0,0,0" Padding="2" Height="39"/>
                 </StackPanel>
             </Grid>
@@ -54,13 +54,29 @@
             <Grid Margin="0,0,0,10">
             <Rectangle Fill="#FFF4F4F5"  Stroke="Black"/>
             <StackPanel HorizontalAlignment="Stretch" Margin="5" VerticalAlignment="Stretch" >
-              <Label Content="Version 5.0 (Current)" FontWeight="Bold"/>
+              <Label Content="Version 5.0" FontWeight="Bold"/>
               <Label Content="-Added options for generating FAssetTypeActions_Base classes." Margin="20,0,0,0" Padding="2" Height="20"/>
               <Label Content="-Fixed crash when generating custom assets." Margin="20,0,0,0" Padding="2" Height="20"/>
               <Label Content="-Minor UI size and layout tweaks." Margin="20,0,0,0" Padding="2" Height="20"/>
             </StackPanel>
           </Grid>
-          </StackPanel>
+          <Grid Margin="0,0,0,10">
+	          <Rectangle Fill="#FFF4F4F5"  Stroke="Black"/>
+	          <StackPanel HorizontalAlignment="Stretch" Margin="5" VerticalAlignment="Stretch" >
+					<Label Content="Version 5.1 (Current)" FontWeight="Bold"/>
+					<Label Content="-Fixed the include path of the module manager for newer versions of UE4." Margin="20,0,0,0" Padding="2" Height="20"/>
+					<StackPanel HorizontalAlignment="Stretch" Margin="20,0,0,0" VerticalAlignment="Stretch" Orientation="Horizontal" >
+						<Label Content="-Deprecated the module creation tool in favour of my module generator plugin."  Padding="2" Height="20"/>
+						<TextBlock VerticalAlignment="Center">
+							<Hyperlink NavigateUri="https://www.unrealengine.com/marketplace/en-US/product/ec36ec6e94f74075819e2a04f7cb97f3" RequestNavigate="RequestNavigate">
+								Link
+							</Hyperlink>
+						</TextBlock>
+					</StackPanel>
+					<Label Content="-Added support for public/private file structures when renaming classes." Margin="20,0,0,0" Padding="2" Height="20"/>
+	          </StackPanel>
+          </Grid>
+                </StackPanel>
         </ScrollViewer>
         <Button x:Name="ReturnHome_btn" Content="Return Home" Height="40" Width="200" Margin="0,20,0,0" FontSize="18" Click="ReturnHome_btn_Click"/>
         </StackPanel>

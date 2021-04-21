@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +14,10 @@ using System.Windows.Shapes;
 using System.IO;
 using System.Text.RegularExpressions;
 using Path = System.IO.Path;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System.Diagnostics;
+using System.Windows.Navigation;
 
 namespace UE4_Tools.Windows
 {
@@ -91,8 +95,9 @@ namespace UE4_Tools.Windows
                 NewUProject = NewUProject.Replace("ModuleType",   ModuleType_SB.Select_CB.SelectedValue.ToString());
                 NewUProject = NewUProject.Replace("LoadingPhaseType", LoadingPhases_Sb.Select_CB.SelectedValue.ToString());
 
-                MatchCollection Results = Regex.Matches(FullUProject, @"}", RegexOptions.Singleline);
-                FullUProject = FullUProject.Insert(Results[Results.Count - 2].Index+1, NewUProject);
+                //Can cause issues when using plugins. Preferred solution would convert to JSON
+                MatchCollection ResultsUProject = Regex.Matches(FullUProject, @"}", RegexOptions.Singleline);
+                FullUProject = FullUProject.Insert(ResultsUProject[ResultsUProject.Count - 2].Index+1, NewUProject);
                 File.WriteAllText(ProjectSelector.FullPathAndFile, FullUProject);
             #endregion
 
@@ -111,7 +116,13 @@ namespace UE4_Tools.Windows
                     BuildFile = BuildFile.Replace(", \"UnrealEd\"", "");
                 }
 
+            //Swap to new ModuleManager include path if needed
                 string PublicFile = GlobalFunction.FindResourceTextFile("BoilerplateStartUpH").Replace("BoilerplateModule", ModuleName);
+                if(FourTwentyFive_CB.IsChecked)
+                {
+                    PublicFile = PublicFile.Replace("#include \"ModuleManager.h\"", "#include \"Modules/ModuleManager.h\"");
+                }
+
                 string PrivateFile = GlobalFunction.FindResourceTextFile("BoilerplateStartUpCPP").Replace("BoilerplateModule", ModuleName);
 
                 File.WriteAllText(NewDirectory + "/" + ModuleName + ".build.cs", BuildFile);
@@ -126,7 +137,7 @@ namespace UE4_Tools.Windows
                 string NewTarget = GlobalFunction.FindResourceTextFile("BoilerplateTargetFile");
                 NewTarget = NewTarget.Replace("BoilerplateModule", ModuleName);
 
-                Results = Regex.Matches(TargetGame, @"}", RegexOptions.Singleline);
+                MatchCollection Results = Regex.Matches(TargetGame, @"}", RegexOptions.Singleline);
                 string NewTargetGame = TargetGame.Insert(Results[Results.Count - 2].Index, NewTarget + Environment.NewLine + "\t");
 
                 Results = Regex.Matches(TargetGameEditor, @"}", RegexOptions.Singleline);
@@ -138,6 +149,11 @@ namespace UE4_Tools.Windows
                     File.WriteAllText(ProjectPath + "/Source/" + ProjectSelector.FileName + ".Target.cs", NewTargetGame);
                 }
             #endregion
+        }
+        private void RequestNavigate(object sender, RequestNavigateEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
+            e.Handled = true;
         }
     }
 }

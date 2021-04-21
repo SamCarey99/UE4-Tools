@@ -6,17 +6,32 @@
         xmlns:local="clr-namespace:UE4_Tools.Windows"
         xmlns:View="clr-namespace:UE4_Tools.Windows.Components"
         mc:Ignorable="d"
-        Title="CreateModule" Height="500" Width="650">
+        Title="Create Module" Height="622.333" Width="669">
     <Grid>
         <StackPanel HorizontalAlignment="Stretch" Margin="5" VerticalAlignment="Stretch">
+            <Grid>
+                <Rectangle Height="50" Margin="5" Fill="DarkRed"></Rectangle>
+                <StackPanel Margin="5">
+                    <Label Foreground="White" x:Name="label" Content="This tool is now deprecated. It will no longer receive updates and may not work with engine versions newer than 4.26" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center"/>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Foreground="White" x:Name="label2" Content="Please use my in engine C++ Module Generator plugin instead" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center"/>
+                        <TextBlock VerticalAlignment="Center">
+	                        <Hyperlink NavigateUri="https://www.unrealengine.com/marketplace/en-US/product/ec36ec6e94f74075819e2a04f7cb97f3" RequestNavigate="RequestNavigate">
+		                        Link
+	                        </Hyperlink>
+                        </TextBlock>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+
             <View:FileSelectorComponent x:Name="ProjectSelector" 
-                                           ShowFullPath="False"  
-                                           ShowFileExtension="True" 
-                                           FileType=".uproject" 
-                                           FileTypeName="Unreal Engine Project File (.uproject)" 
-                                           NotSelectedMessage="You must select a project to continue"
-                                           DefaultValue="SELECT PROJECT FILE (.uproject)"
-            />
+	                                    ShowFullPath="False"  
+	                                    ShowFileExtension="True" 
+	                                    FileType=".uproject" 
+	                                    FileTypeName="Unreal Engine Project File (.uproject)" 
+	                                    NotSelectedMessage="You must select a project to continue"
+	                                    DefaultValue="SELECT PROJECT FILE (.uproject)"
+	        />
             <View:ValidatableInputComponent x:Name="NewModuleName" HelperText="New Module Name" InputText="ModuleName" Margin="0,20,0,20"
                                             Validation_Empty="true" 
                                             Validation_HasSpace="true" 
@@ -25,10 +40,11 @@
             <View:SelectBoxComponent x:Name="Teplate_SB" HelperText="Module Template" MyChangeBoxEventHandler="Teplate_SB_MyChangeBoxEventHandler" EnumValues="ModulePrest" DefaultSelected="1"/>
             <View:SelectBoxComponent x:Name="ModuleType_SB" HelperText="Module Type" EnumValues="ModuleAndPluginTypes" IsEnabled="False"/>
             <View:SelectBoxComponent x:Name="LoadingPhases_Sb" HelperText="Loading Phases" EnumValues="LoadingPhases" IsEnabled="False" DefaultSelected="5"/>
-
+            <View:TickBoxComponent x:Name="FourTwentyFive_CB" HelperText="Use 4.25+ include paths" IsChecked="True" Margin="0,30,0,0"/>
 
             <Button x:Name="CreateModule_btn" Content="Create Module" Height="50" Width="200" Margin="10" FontSize="24" Click="CreateModule_btn_Click"/>
             <Button x:Name="ReturnHome_btn" Content="Return Home" Height="40" Width="150" FontSize="18" Click="ReturnHome_btn_Click"/>
+
         </StackPanel>
     </Grid>
 </Window>
