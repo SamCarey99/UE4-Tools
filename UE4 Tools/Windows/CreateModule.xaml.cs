@@ -14,8 +14,6 @@ using System.Windows.Shapes;
 using System.IO;
 using System.Text.RegularExpressions;
 using Path = System.IO.Path;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using System.Diagnostics;
 using System.Windows.Navigation;
 
